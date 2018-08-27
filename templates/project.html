@@ -16,7 +16,7 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
-     <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
   <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
   <style>
   .navbar-default {
@@ -75,66 +75,10 @@ var mapPopupsJS = L.mapbox.map('map-popups-js', 'mapbox.streets')
   .setView([-37.813629, 144.963058], 15);
 var myLayer = L.mapbox.featureLayer().addTo(mapPopupsJS);
 
-var geojson = [
-    {
-    type: 'Feature',
-    geometry: {
-        coordinates: [144.979784755893, -37.823913626086],
-        type: 'Point'
-    },
-    properties: {
-        'description': '2 lanes closed eastbound<p>delay time : 2 mins<p>start time: 2018-08-13 8:00pm<p>end time: 2018-9-16 6:00pm</p>',
-        'marker-color': '#3bb2d0',
-        'marker-size': 'large',
-        'marker-symbol': 'rocket',
-        'title': 175779
-        }
-    },
-    {
-    type: 'Feature',
-    geometry: {
-        coordinates: [144.962175069658, -37.8065795415405],
-        type: 'Point'},
-    properties: {
-        'description': '2 lanes closed westbound<p>delay time : 3 mins<p>start time: 2018-07-23 6:00pm<p>end time: 2018-8-26 10:00pm</p>',
-        'marker-color': '#3bb2d0',
-        'marker-size': 'large',
-        'marker-symbol': 'rocket',
-        'title': 183057
-        }
-    },
-    {    
-    type: 'Feature',
-    geometry: {
-        coordinates: [144.953238904022, -37.8170903106589],
-        type: 'Point'
-    },
-    properties: {
-        'description': '1 lane closed southbound<p>delay time : 8 mins<p>start time: 2018-08-23 8:00pm<p>end time: 2018-9-26 8:00pm</p>',
-        'marker-color': '#3bb2d0',
-        'marker-size': 'large',
-        'marker-symbol': 'rocket',
-        'title': 180700
-        }
-    },
-    {
-    type: 'Feature',
-    geometry: {
-        coordinates: [144.961877302622, -37.8244280072776],
-        type: 'Point'},
-    properties: {
-        'description': '<p>2 lanes closed southbound<p>delay time : 5 mins<p>start time: 2018-08-23 8:00pm<p>end time: 2018-9-26 8:00pm</p>',
-        'marker-color': '#3bb2d0',
-        'marker-size': 'large',
-        'marker-symbol': 'rocket',
-        'title': 181906
-        }
-    }
-    ]
-
+myLayer.addSource("myfile", {
+        type: "geojson",
+        url: "https://cdn.rawgit.com/MattMa0101/fair_journey/fa8b4a4e/myfile.geojson"});
 // Set a custom icon on each marker based on feature properties.
-
-myLayer.setGeoJSON(geojson);
 mapPopupsJS.scrollWheelZoom.disable();
 </script>
 </body>
