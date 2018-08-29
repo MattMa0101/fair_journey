@@ -37,7 +37,7 @@
         <div id="navbar-collapse" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url 'index' %}">Home</a></li>
-            <li class="active"><a href="{% url 'service' %}">Services</a></li>
+            <li class="active"><a href="{% url 'service' %}">Our Services</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             <!--<li><a href="gallery.html">Gallery</a></li>
             <li class="dropdown">
@@ -106,11 +106,15 @@
             <div class="probootstrap-service-2 probootstrap-animate">
               <div class="image">
                 <div class="image-bg">
+                     <a href="{% url 'project' %}">
                   <img src="{% static 'img/road_construction.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
+                     </a>
                 </div>
               </div>
               <div class="text">
-                <h3>Road Construction Notification</h3>
+                   <a href="{% url 'project' %}">
+                       <h3>Road Construction Information</h3>
+                   </a>
                 <p>The fair journey can provide accurate and real-time road construction information for clients, which includes location, period and time</p>
               </div>
             </div>
@@ -127,7 +131,7 @@
               </div>
               <div class="text">
                 <a href="{% url 'map' %}">
-                    <h3>Travelling and Naviagtion</h3>
+                    <h3>Travelling and Navigation</h3>
                  </a>
                   <p href>The fair journey allows client to design their own travelling plan among different locations and provides navigation for their plan. Customers can avoid some road </p>
               </div>
@@ -141,7 +145,7 @@
               </div>
               <div class="text">
                 <h3>Disable Parking</h3>
-                <p>The fair journey provide real-time information about disable parking in various parkings. The disability also can search information about disabled assistance equipment </p>
+                <p>The fair journey provide real-time information about disable parking in various parking. The disability also can search information about disabled assistance equipment </p>
               </div>
             </div>
 
@@ -189,7 +193,7 @@
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-lightbulb"></i></div>
               <div class="text">
-                <h3>The collection of information for the disablity</h3>
+                <h3>The collection of information for the disability</h3>
                 <p>Clients can get all information about travelling on our website</p>
               </div>
             </div>
