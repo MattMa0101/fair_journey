@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -35,9 +36,9 @@
 
         <div id="navbar-collapse" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li class="active"><a href="about.html">About</a></li>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'service' %}">Services</a></li>
+            <li class="active"><a href="{% url 'about' %}">About</a></li>
             <!--<li><a href="gallery.html">Gallery</a></li>
             <li class="dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
@@ -56,8 +57,8 @@
                 </li>
                 <li><a href="services.html">Services</a></li>
               </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>-->
+            </li>-->
+            <li><a href="{% url 'contact' %}">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -65,7 +66,7 @@
 
     <section class="flexslider">
       <ul class="slides">
-        <li style="background-image: url(img/slider_1.jpg)" class="overlay">
+        <li style="background-image: url('{% static 'img/slider_1.jpg' %}')" class="overlay">
           <div class="container">
             <div class="row">
               <div class="col-md-8 col-md-offset-2">
@@ -115,12 +116,12 @@
 
     
 
-    <section class="probootstrap-section">
+   <section class="probootstrap-section">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
             <h2>Why Choose Us</h2>
-            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+            <p class="lead">The real-time and reliable searching system</p>
           </div>
         </div>
         <div class="row">
@@ -128,22 +129,22 @@
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-mobile3"></i></div>
               <div class="text">
-                <h3>Consectetur Adipisicing</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
-              </div>  
+                <h3>Real-time construction information</h3>
+                <p>Our data comes from Vicroad through API and it will be updated hourly to keep accuracy</p>
+              </div>
             </div>
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-presentation"></i></div>
               <div class="text">
-                <h3>Aliquid Dolorum Saepe</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                <h3>Designed for the disabled</h3>
+                <p>Our system aim to provide useful information to the disability</p>
               </div>
             </div>
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-circle-compass"></i></div>
               <div class="text">
-                <h3>Eveniet Tempora Anisi</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                <h3>Flexible Travelling plan</h3>
+                <p>The navigation system allows users to plan their walking and driving plan at any points</p>
               </div>
             </div>
           </div>
@@ -151,11 +152,11 @@
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-lightbulb"></i></div>
               <div class="text">
-                <h3>Laboriosam Quod Dignissimos</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
-              </div>  
+                <h3>The collection of information for the disablity</h3>
+                <p>Clients can get all information about travelling on our website</p>
+              </div>
             </div>
-            
+            <!--
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-magnifying-glass2"></i></div>
               <div class="text">
@@ -163,7 +164,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
               </div>
             </div>
-            
+
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-browser2"></i></div>
               <div class="text">
@@ -171,13 +172,12 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
               </div>
             </div>
-
+            -->
           </div>
         </div>
         <!-- END row -->
       </div>
     </section>
- 
     <footer class="probootstrap-footer">
       <div class="container">
         <div class="row">
@@ -201,9 +201,8 @@
       </div>
     </footer>
     
-
-    <script src="js/scripts.min.js"></script>
-    <script src="js/custom.min.js"></script>
+    <script src="{% static 'js/scripts.min.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
 
   </body>
 </html>

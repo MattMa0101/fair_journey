@@ -18,3 +18,11 @@ def service(request):
 def project(request):
     html = TemplateResponse(request, 'project.html')
     return HttpResponse(html.render())
+
+def contact(request):
+    html = TemplateResponse(request, 'contact.html')
+    return HttpResponse(html.render())
+
+def about(request):
+    html = TemplateResponse(request, 'about.html')
+    return HttpResponse(html.render())

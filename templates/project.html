@@ -44,7 +44,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'service' %}">Services</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
             <!--<li><a href="gallery.html">Gallery</a></li>
             <li class="dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
@@ -61,10 +61,10 @@
                     <li><a href="#">Second Level Menu</a></li>
                   </ul>
                 </li>
-                <li><a href="services.html">Services</a></li>-->
+                <li><a href="services.html">Services</a></li>
               </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
+            </li>-->
+            <li><a href="{% url 'contact' %}">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -76,7 +76,7 @@ var mapPopupsJS = L.mapbox.map('map-popups-js', 'mapbox.streets')
   .setView([-37.813629, 144.963058], 15);
 var myLayer = L.mapbox.featureLayer().addTo(mapPopupsJS);
 
-myLayer.loadURL('https://cdn.rawgit.com/MattMa0101/fair_journey/fa8b4a4e/myfile.geojson')
+myLayer.loadURL('https://cdn.rawgit.com/MattMa0101/fair_journey/9e40ffa5/myfile.geojson')
 // Set a custom icon on each marker based on feature properties.
 mapPopupsJS.scrollWheelZoom.disable();
 </script>
