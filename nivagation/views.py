@@ -15,8 +15,8 @@ def service(request):
     html = TemplateResponse(request, 'services.html')
     return HttpResponse(html.render())
 
-def project(request):
-    html = TemplateResponse(request, 'project.html')
+def surface(request):
+    html = TemplateResponse(request, 'surface.html')
     return HttpResponse(html.render())
 
 def contact(request):
@@ -25,4 +25,8 @@ def contact(request):
 
 def about(request):
     html = TemplateResponse(request, 'about.html')
+    return HttpResponse(html.render())
+
+def project(request):
+    html = TemplateResponse(request, 'project.html')
     return HttpResponse(html.render())
