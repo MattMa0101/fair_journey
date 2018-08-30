@@ -16,6 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from nivagation.views import *
+from rest_framework.routers import DefaultRouter
+from django.conf.urls import url, include
+# set router for rest framework api
+
+from nivagation.views import RoadViewSet, index, map
+
+router = DefaultRouter()
+router.register(r'road', RoadViewSet)
 
 urlpatterns = [
     path('', index, name='index'),
@@ -26,5 +34,6 @@ urlpatterns = [
     path('service/', service, name='service'),
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
-    path('project/', project, name='project')
+    path('project/', project, name='project'),
+    url(r'^api/', include(router.urls))
 ]

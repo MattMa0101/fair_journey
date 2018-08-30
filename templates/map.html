@@ -94,6 +94,7 @@
 </div>
 
 <script>
+    //define a map for melbourne center
 mapboxgl.accessToken = 'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
 var map = new mapboxgl.Map({
   container: 'map', // container id
@@ -103,6 +104,7 @@ var map = new mapboxgl.Map({
   minZoom: 11 // keep it local
 });
 
+// add draw tools
 var draw = new MapboxDraw({
   displayControlsDefault: false,
   controls: {
@@ -150,6 +152,7 @@ var draw = new MapboxDraw({
   ]
 });
 
+//add search tools
 map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
 }));
@@ -162,6 +165,7 @@ map.on('draw.create', updateRoute);
 map.on('draw.update', updateRoute);
 map.on('draw.delete', removeRoute);
 
+//load road construction information
 map.on('load', function () {
     map.addSource('roadconstruction',{
         type: 'geojson',

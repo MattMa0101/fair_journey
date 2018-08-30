@@ -66,7 +66,7 @@
 
     <section class="flexslider">
       <ul class="slides">
-        <li style="background-image: url('{% static 'img/slider_1.jpg' %}')" class="overlay">
+        <li style="background-image: url('{% static 'img/service.jpg' %}')" class="overlay">
           <div class="container">
             <div class="row">
               <div class="col-md-8 col-md-offset-2">
@@ -94,11 +94,14 @@
             <div class="probootstrap-service-2 probootstrap-animate">
               <div class="image">
                 <div class="image-bg">
+                     <a href="{% url 'surface' %}">
                   <img src="{% static 'img/path_way.png' %}" alt="Free Bootstrap Template by uicookies.com">
+                     </a>
                 </div>
               </div>
               <div class="text">
-                <h3>Surface Information</h3>
+                   <a href="{% url 'surface' %}">
+                       <h3>Surface Information</h3></a>
                   <p>The road surface information in Melbourne CBD, which contains the surface material, initialized year and condition level for the travelling plan of the disability</p>
               </div>
             </div>
@@ -157,7 +160,7 @@
     </section>
 
     
-
+    <!--the functions about the fair journey-->
     <section class="probootstrap-section">
       <div class="container">
         <div class="row">
@@ -198,23 +201,21 @@
                 <p>Clients can get all information about travelling on our website</p>
               </div>
             </div>
-            <!--
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-magnifying-glass2"></i></div>
               <div class="text">
-                <h3>Asperiores Maxime Modi</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                <h3>The disability Parking</h3>
+                <p>Our system can provide real-time the car parking situations for the disability</p>
               </div>
             </div>
 
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-browser2"></i></div>
               <div class="text">
-                <h3>Libero Maxime Molestiae</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                <h3>The services for the disability</h3>
+                <p>Public facilities for disabled persons marked with reachable range</p>
               </div>
             </div>
-            -->
           </div>
         </div>
         <!-- END row -->
