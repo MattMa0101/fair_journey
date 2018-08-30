@@ -22,9 +22,10 @@
     border-color: #333333;
 }
   #map { position:absolute; top:90px; bottom:0; width:100%; }
+
   </style>
 </head>
-<body>
+<body style = 'color: #000000; font-size: 20px'>
     <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
       <div class="container">
         <div class="navbar-header">
@@ -41,7 +42,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'service' %}">Our Services</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
             <!--<li><a href="gallery.html">Gallery</a></li>
             <li class="dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
@@ -81,14 +82,14 @@
     margin: 0;
     font-size: 13px;
   }
+
 </style>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css' type='text/css'/>
 <div id='map'></div>
-<div class='info-box'>
-  <p>Draw your route using the draw tools (25 points max)</p>
+    <div class='info-box'>
   <div id='calculated-line'></div>
 </div>
 
