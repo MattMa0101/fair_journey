@@ -9,44 +9,48 @@ from django.template.response import TemplateResponse
 from django.http.response import HttpResponse
 from nivagation.models import query_road_by_args
 
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 # return page
+
+@login_required(login_url='/login/')
 def index(request):
     html = TemplateResponse(request, 'index.html')
     return HttpResponse(html.render())
 
-
+@login_required(login_url='/login/')
 # return map page
 def map(request):
     html = TemplateResponse(request, 'map.html')
     return HttpResponse(html.render())
 
-
+@login_required(login_url='/login/')
 # return service page
 def service(request):
     html = TemplateResponse(request, 'services.html')
     return HttpResponse(html.render())
 
-
+@login_required(login_url='/login/')
 # return surface page
 def surface(request):
     html = TemplateResponse(request, 'surface.html')
     return HttpResponse(html.render())
 
-
+@login_required(login_url='/login/')
 # return contact page
 def contact(request):
     html = TemplateResponse(request, 'contact.html')
     return HttpResponse(html.render())
 
-
+@login_required(login_url='/login/')
 # return about page
 def about(request):
     html = TemplateResponse(request, 'about.html')
     return HttpResponse(html.render())
 
-
+@login_required(login_url='/login/')
 # return project page
 def project(request):
     html = TemplateResponse(request, 'project.html')
