@@ -18,6 +18,7 @@ from django.urls import path
 from nivagation.views import *
 from rest_framework.routers import DefaultRouter
 from django.conf.urls import url, include
+from django.contrib.auth import views as auth_views
 # set router for rest framework api
 
 from nivagation.views import RoadViewSet, index, map
@@ -27,7 +28,7 @@ router.register(r'road', RoadViewSet)
 
 urlpatterns = [
     path('', index, name='index'),
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     path('index/', index, name='index'),
     path('map/', map, name='map'),
     path('surface/', surface, name='surface'),
@@ -35,5 +36,6 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
     path('project/', project, name='project'),
-    url(r'^api/', include(router.urls))
+    url(r'^api/', include(router.urls)),
+    url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
 ]
