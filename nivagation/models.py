@@ -5,13 +5,13 @@ from model_utils import Choices
 
 ORDER_COLUMN_CHOICES = Choices(
     ('0', 'id'),
-    ('1', 'subject_pref_rdname'),
-    ('2', 'rwe_type'),
-    ('3', 'rwe_closure_type'),
-    ('4', 'rwe_status'),
-    ('5', 'rwe_start_dt'),
-    ('6', 'rwe_end_dt'),
-    ('7', 'rwe_publish_text'),
+    ('1', 'rwe_type'),
+    ('2', 'rwe_closure_type'),
+    ('3', 'rwe_status'),
+    ('4', 'rwe_start_dt'),
+    ('5', 'rwe_end_dt'),
+    ('6', 'rwe_publish_text'),
+    ('7', 'subject_pref_rdname'),
     ('8', 'traffic_delay'),
     ('9', 'speed_limit'),
     ('10', 'lanes_affected')
