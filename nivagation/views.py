@@ -23,19 +23,19 @@ def index(request):
 @login_required(login_url='/login/')
 # return map page
 def map(request):
-    html = TemplateResponse(request, 'map.html')
+    html = TemplateResponse(request, 'new_map.html')
     return HttpResponse(html.render())
 
 @login_required(login_url='/login/')
 # return service page
 def service(request):
-    html = TemplateResponse(request, 'services.html')
+    html = TemplateResponse(request, 'map.html')
     return HttpResponse(html.render())
 
 @login_required(login_url='/login/')
 # return surface page
 def surface(request):
-    html = TemplateResponse(request, 'surface.html')
+    html = TemplateResponse(request, 'nearby_toilets.html')
     return HttpResponse(html.render())
 
 @login_required(login_url='/login/')

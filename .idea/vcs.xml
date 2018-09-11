@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/old_version/Interface/AddOns/EventAlertMod" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/old_version/Interface/AddOns/oUF_AbuOptions" vcs="Git" />
   </component>
 </project>
