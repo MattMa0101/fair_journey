@@ -30,13 +30,15 @@
     <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
 
     <style>
-          .navbar-default {
-    background-color: #333333;
-    border-color: #333333;
-}
+        .navbar-default {
+            background-color: #333333;
+            border-color: #333333;
+        }
 
         body { margin:0; padding:0; }
+
         #map { position:absolute; top:90px; bottom:0; width:100%; }
+
         .leaflet-popup-content .marker-title{font-weight:500;color:#999;line-height:1.3em;}
         .marker-title span{color:#00704A;font-weight:bold;}
         #distanceCount{line-height:2em;color:dodgerblue}
@@ -56,6 +58,7 @@
             color:white;
             opacity: 0.8;
         }
+
         #project {
             margin: 1px;
             width: 100%;
@@ -70,10 +73,11 @@
             color:white;
             opacity: 0.8;
         }
+
         ul.pin-top {
             border-radius: 3px;
             opacity: 1;
-            font-size:11px;
+            font-size:11px;w
             top:100px;
             left:5px;
             background-color: #474a56;
@@ -98,7 +102,6 @@
             background-color: #474a56;
             color:white;
             opacity: 0.9;
-
         }
 
         li.content {
@@ -137,6 +140,7 @@
         .fr {
         float: left;
         }
+
         .elevGraph {
             fill: deepskyblue;
             stroke: none;
@@ -160,12 +164,14 @@
             background: #474a56;
             color:#323643;
         }
+
         .marker-hover {
             background: steelblue;
             border-radius: 50%;
             border: 2px solid white;
             height: 20px;
         }
+
         .focus circle {
             fill: steelblue;
             stroke: white;
@@ -175,32 +181,30 @@
     </style>
 </head>
 <body>
-
-<script src="{% static "assets/web/assets/jquery/jquery.min.js" %}"></script>
-<script src="{% static "assets/popper/popper.min.js" %}"></script>
-<script src="{% static "assets/tether/tether.min.js" %}"></script>
-<script src="{% static "assets/bootstrap/js/bootstrap.min.js" %}"></script>
-<script src="{% static "assets/smoothscroll/smooth-scroll.js" %}"></script>
-<script src="{% static "assets/dropdown/js/script.min.js" %}"></script>
-<script src="{% static "assets/ytplayer/jquery.mb.ytplayer.min.js" %}"></script>
-<script src="{% static "assets/vimeoplayer/jquery.mb.vimeo_player.js" %}"></script>
-<script src="{% static "assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js" %}"></script>
-<script src="{% static "assets/touchswipe/jquery.touch-swipe.min.js" %}"></script>
-<script src="{% static "assets/theme/js/script.js" %}"></script>
-<script src="{% static "assets/slidervideo/script.js" %}"></script>
-
-<div>
-    <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{% url 'index' %}" title="uiCookies:FineOak">Fair Journey</a>
-        </div>
+    <script src="{% static "assets/web/assets/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "assets/popper/popper.min.js" %}"></script>
+    <script src="{% static "assets/tether/tether.min.js" %}"></script>
+    <script src="{% static "assets/bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "assets/smoothscroll/smooth-scroll.js" %}"></script>
+    <script src="{% static "assets/dropdown/js/script.min.js" %}"></script>
+    <script src="{% static "assets/ytplayer/jquery.mb.ytplayer.min.js" %}"></script>
+    <script src="{% static "assets/vimeoplayer/jquery.mb.vimeo_player.js" %}"></script>
+    <script src="{% static "assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js" %}"></script>
+    <script src="{% static "assets/touchswipe/jquery.touch-swipe.min.js" %}"></script>
+    <script src="{% static "assets/theme/js/script.js" %}"></script>
+    <script src="{% static "assets/slidervideo/script.js" %}"></script>
+    <div>
+        <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{% url 'index' %}" title="uiCookies:FineOak">Fair Journey</a>
+            </div>
 
         <div id="navbar-collapse" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -232,9 +236,9 @@
       </div>
     </nav></div>
 
-<div id='map'></div>
-<!--<ul class='pin-top pad1 quiet space-top2 space-left2 col3'>-->
-             <ul class='pin-top quiet col3'>
+    <div id='map'></div>
+    <!--<ul class='pin-top pad1 quiet space-top2 space-left2 col3'>-->
+    <ul class='pin-top quiet col3'>
 
     <li id='dst-location' class='fill-white keyline-bottom'>
         <!--<span class='label'>Choose starting location</span>-->
@@ -253,11 +257,13 @@
         <span class='label'>Destination</span>
         <div class='selection'></div>
     </li>-->
+
     <li id='route-info' class='fill-gray'>
         <p><span class='label'><b>STEPS:</b></span></p>
         <div id='instructions' class='content row6'>
         </div>
     </li>
+
     <li id='route-info' class='fill-gray'>
         <p><span class='label'><b>Road Construction:</b></span></p>
         <div id='project' class='content row4'>
@@ -271,258 +277,262 @@
         <div class='col4 margin1 button short fr fill-blue' id='hideproject'>Hide Project</div>
     </li>
 </ul>
-<script>
-mapboxgl.accessToken = 'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
-var map = new mapboxgl.Map({
-  container: 'map', // container id
-  style: 'mapbox://styles/mapbox/streets-v9', //hosted style id
-  center: [144.9631,-37.8136], // starting position
-  zoom: 13, // starting zoom
-  minZoom: 9 // keep it local
-});
-
-map.on('load', function () {
-    map.addSource('roadconstruction',{
-        type: 'geojson',
-        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/f7561bf3/myfile.geojson'
-    })
-
-    map.addLayer({
-        "id": "places",
-        "type": "symbol",
-        "source": 'roadconstruction',
-        "layout": {
-                "icon-image": "{icon}-15",
-                "icon-allow-overlap": true
-            }
-    });
-    map.on('click', 'places', function (e) {
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = e.features[0].properties.description;
-
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
-
-        new mapboxgl.Popup()
-            .setLngLat(coordinates)
-            .setHTML(description)
-            .addTo(map);
-    });
-
-    $('#hideproject').on('click', function(){
-        console.log(document.getElementById('hideproject').innerHTML)
-        if(document.getElementById('hideproject').innerHTML == "Hide Project"){
-            map.setLayoutProperty('places', 'visibility', 'none');
-            document.getElementById('hideproject').innerHTML = "Show Project";
-        }
-        else {
-            map.setLayoutProperty('places', 'visibility', 'visible');
-            document.getElementById('hideproject').innerHTML = "Hide Project";
-        }
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
+        var map = new mapboxgl.Map({
+          container: 'map', // container id
+          style: 'mapbox://styles/mapbox/streets-v9', //hosted style id
+          center: [144.9631,-37.8136], // starting position
+          zoom: 13, // starting zoom
+          minZoom: 9 // keep it local
         });
 
-    // Change the cursor to a pointer when the mouse is over the places layer.
-    map.on('mouseenter', 'places', function () {
-        map.getCanvas().style.cursor = 'pointer';
-    });
+        map.on('load', function () {
+             map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
+                    if (error) throw error;
+                    map.addImage('cat', image);
+                    map.addSource('roadconstruction',{
+                        type: 'geojson',
+                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/f7561bf3/myfile.geojson'
+                    })
 
-    // Change it back to a pointer when it leaves.
-    map.on('mouseleave', 'places', function () {
-        map.getCanvas().style.cursor = '';
-    });
-        $('.refresh').on('click', function(){
-        document.location.reload(true);
-    });
-var geocoder_1 = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken
-});
+                    map.addLayer({
+                        "id": "places",
+                        "type": "symbol",
+                        "source": 'roadconstruction',
+                        "layout": {
+                                "icon-image": "cat",
+                                "icon-size": 0.25,
+                                "icon-allow-overlap": true
+                            }
+                    });});
 
-document.getElementById('geocoder_1').appendChild(geocoder_1.onAdd(map))
+            map.on('click', 'places', function (e) {
+                var coordinates = e.features[0].geometry.coordinates.slice();
+                var description = e.features[0].properties.description;
 
-    var geocoder_2 = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken
-});
-
-document.getElementById('geocoder_2').appendChild(geocoder_2.onAdd(map))
-
-map.addSource('single-point', {
-  type: 'geojson',
-  data: {
-    type: 'FeatureCollection',
-    features: [] // Notice that initially there are no features
-  }
-});
-
-map.addLayer({
-  id: 'start',
-  source: 'single-point',
-  type: 'circle',
-  paint: {
-    'circle-radius': 10,
-    'circle-color': '#007cbf',
-    'circle-stroke-width': 3,
-    'circle-stroke-color': '#fff'
-  }
-});
-
-map.addSource('end-point', {
-  type: 'geojson',
-  data: {
-    type: 'FeatureCollection',
-    features: [] // Notice that initially there are no features
-  }
-});
-
-map.addLayer({
-  id: 'end',
-  source: 'end-point',
-  type: 'circle',
-  paint: {
-    'circle-radius': 10,
-    'circle-color': '#007cbf',
-    'circle-stroke-width': 3,
-    'circle-stroke-color': '#fff'
-  }
-});
-
-map.addSource('route', {
-  type: 'geojson',
- data: {
-    type: 'FeatureCollection',
-    features: [] // Notice that initially there are no features
-  }
-});
-
-map.addLayer({
-        id: 'route',
-        source: 'route',
-        type: 'line',
-        layout: {
-            "line-join": "round",
-            "line-cap": "round"
-        },
-        paint: {
-            "line-color": "#3cb2d0",
-            "line-width": 8
-        }
-});
-
-
-var start_point;
-
-geocoder_1.on('result', function(ev) {
-    console.log(ev);
-    start_point = ev.result.geometry.coordinates;
-    var searchResult = ev.result.geometry;
-    map.getSource('single-point').setData(searchResult);
-        if(start_point != null && destination != null){
-    getRouteInfo(start_point, destination);};
-});
-
-
-var destination;
-
-geocoder_2.on('result', function(ev) {
-    console.log(ev);
-    destination = ev.result.geometry.coordinates;
-    console.log(destination);
-    var searchResult = ev.result.geometry;
-    map.getSource('end-point').setData(searchResult);
-    if(start_point != null && destination != null){
-    getRouteInfo(start_point, destination);
-    getDistance(start_point, destination)};
-});
-    var geolocate = new mapboxgl.GeolocateControl({
-                        positionOptions: {
-                            enableHighAccuracy: true
-                        },
-                        trackUserLocation: true
-                    });
-    map.addControl(geolocate);
-    geolocate.on('geolocate',(e) =>{
-        start_point = [e.coords.longitude, e.coords.latitude]
-        console.log(start_point )
-    });
-
-
- function getRouteInfo ( start_point, destination ) {
-            var startCoord = start_point.toString();
-            var endCoord = destination.toString();
-            var directionsURL = 'https://api.tiles.mapbox.com/v4/directions/mapbox.walking/'+ startCoord + ';' + endCoord +'.json?steps=true&geometries=geojson&access_token=' +'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
-            console.log(directionsURL);
-           $.ajax({
-                type: "GET",
-                url:directionsURL,
-                async:false,
-                success:function(data) {
-                console.log(data);
-                var route = data.routes[0].geometry;
-                var geoJSON = {
-                    "type": "Feature",
-                    "properties": {
-                        "stroke": "#63aebb",
-                        "stroke-width": "5"
-                    }
-                };
-                geoJSON.geometry = route;
-                map.getSource('route').setData(geoJSON);
-                //steps
-                document.getElementById("instructions").innerHTML = "";
-                $("li.content").css({"display":"inline"});
-                //update instructions
-                var instructions = document.getElementById('instructions');
-                var steps = data.routes[0].steps;
-                steps.forEach(function(step) {
-                    instructions.insertAdjacentHTML('beforeend', '<p>' + step.maneuver.instruction + '</p>');
-                });
+                // Ensure that if the map is zoomed out such that multiple
+                // copies of the feature are visible, the popup appears
+                // over the copy being pointed to.
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                 }
+
+                new mapboxgl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(map);
             });
 
-           };
-
- function getDistance (start_point, destination ) {
-            var startCoord = start_point.toString();
-            var endCoord = destination.toString();
-            var directionsURL = 'https://api.tiles.mapbox.com/v4/directions/mapbox.walking/'+ startCoord + ';' + endCoord +'.json?steps=true&geometries=geojson&access_token=' +'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
-            console.log(directionsURL);
-            var line;
-            $.ajax({
-                type: "GET",
-                url:directionsURL,
-                async:false,
-                success:function(data) {
-                console.log(data);
-                line = data.routes[0].geometry;
-            }
-            });
-            console.log(line)
-           $.get("{% static "myfile.geojson" %}", function(data) {
-               var project = JSON.parse(data);
-               console.log(project.features[0]);
-               var nearby = [];
-               project.features.forEach(function (point) {
-                   if(turf.pointToLineDistance(point, line, {units: 'miles'})<0.2){
-                       nearby.push(point)
-                   }
-               });
-               console.log(nearby)
-               document.getElementById("project").innerHTML = "";
-                $("li.content").css({"display":"inline"});
-                //update instructions
-                var instructions = document.getElementById('project');
-                nearby.forEach(function(pro) {
-                    instructions.insertAdjacentHTML('beforeend', pro.properties.description);
+            $('#hideproject').on('click', function(){
+                console.log(document.getElementById('hideproject').innerHTML)
+                if(document.getElementById('hideproject').innerHTML == "Hide Project"){
+                    map.setLayoutProperty('places', 'visibility', 'none');
+                    document.getElementById('hideproject').innerHTML = "Show Project";
+                }
+                else {
+                    map.setLayoutProperty('places', 'visibility', 'visible');
+                    document.getElementById('hideproject').innerHTML = "Hide Project";
+                }
                 });
-           });
- };
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+            map.on('mouseenter', 'places', function () {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'places', function () {
+                map.getCanvas().style.cursor = '';
+            });
+                $('.refresh').on('click', function(){
+                document.location.reload(true);
+            });
+
+            var geocoder_1 = new MapboxGeocoder({
+              accessToken: mapboxgl.accessToken
+            });
+
+            document.getElementById('geocoder_1').appendChild(geocoder_1.onAdd(map))
+
+                var geocoder_2 = new MapboxGeocoder({
+              accessToken: mapboxgl.accessToken
+            });
+
+            document.getElementById('geocoder_2').appendChild(geocoder_2.onAdd(map))
+
+            map.addSource('single-point', {
+              type: 'geojson',
+              data: {
+                type: 'FeatureCollection',
+                features: [] // Notice that initially there are no features
+              }
+            });
+
+            map.addLayer({
+              id: 'start',
+              source: 'single-point',
+              type: 'circle',
+              paint: {
+                'circle-radius': 10,
+                'circle-color': '#007cbf',
+                'circle-stroke-width': 3,
+                'circle-stroke-color': '#fff'
+              }
+            });
+
+            map.addSource('end-point', {
+              type: 'geojson',
+              data: {
+                type: 'FeatureCollection',
+                features: [] // Notice that initially there are no features
+              }
+            });
+
+            map.addLayer({
+              id: 'end',
+              source: 'end-point',
+              type: 'circle',
+              paint: {
+                'circle-radius': 10,
+                'circle-color': '#007cbf',
+                'circle-stroke-width': 3,
+                'circle-stroke-color': '#fff'
+              }
+            });
+
+            map.addSource('route', {
+              type: 'geojson',
+             data: {
+                type: 'FeatureCollection',
+                features: [] // Notice that initially there are no features
+              }
+            });
+
+            map.addLayer({
+                    id: 'route',
+                    source: 'route',
+                    type: 'line',
+                    layout: {
+                        "line-join": "round",
+                        "line-cap": "round"
+                    },
+                    paint: {
+                        "line-color": "#3cb2d0",
+                        "line-width": 8
+                    }
+            });
 
 
-})
+            var start_point;
 
+            geocoder_1.on('result', function(ev) {
+                console.log(ev);
+                start_point = ev.result.geometry.coordinates;
+                var searchResult = ev.result.geometry;
+                map.getSource('single-point').setData(searchResult);
+                    if(start_point != null && destination != null){
+                getRouteInfo(start_point, destination);};
+            });
+
+
+            var destination;
+
+            geocoder_2.on('result', function(ev) {
+                console.log(ev);
+                destination = ev.result.geometry.coordinates;
+                console.log(destination);
+                var searchResult = ev.result.geometry;
+                map.getSource('end-point').setData(searchResult);
+                if(start_point != null && destination != null){
+                getRouteInfo(start_point, destination);
+                getDistance(start_point, destination)};
+            });
+                var geolocate = new mapboxgl.GeolocateControl({
+                                    positionOptions: {
+                                        enableHighAccuracy: true
+                                    },
+                                    trackUserLocation: true
+                                });
+                map.addControl(geolocate);
+                geolocate.on('geolocate',(e) =>{
+                    start_point = [e.coords.longitude, e.coords.latitude]
+                    console.log(start_point )
+                });
+
+
+             function getRouteInfo ( start_point, destination ) {
+                 var startCoord = start_point.toString();
+                 var endCoord = destination.toString();
+                 var directionsURL = 'https://api.tiles.mapbox.com/v4/directions/mapbox.walking/'+ startCoord + ';' + endCoord +'.json?steps=true&geometries=geojson&access_token=' +'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
+                 console.log(directionsURL);
+                 $.ajax({
+                     type: "GET",
+                     url:directionsURL,
+                     async:false,
+                     success:function(data) {
+                         console.log(data);
+                         var route = data.routes[0].geometry;
+                         var geoJSON = {
+                             "type": "Feature",
+                             "properties": {
+                             "stroke": "#63aebb",
+                             "stroke-width": "5"
+                             }
+                          };
+                         geoJSON.geometry = route;
+                         map.getSource('route').setData(geoJSON);
+                            //steps
+                         document.getElementById("instructions").innerHTML = "";
+                         $("li.content").css({"display":"inline"});
+                            //update instructions
+                         var instructions = document.getElementById('instructions');
+                         var steps = data.routes[0].steps;
+                         steps.forEach(function(step) {
+                             instructions.insertAdjacentHTML('beforeend', '<p>' + step.maneuver.instruction + '</p>');
+                         });
+                     }
+                 });
+
+             };
+
+             function getDistance (start_point, destination ) {
+                 var startCoord = start_point.toString();
+                 var endCoord = destination.toString();
+                 var directionsURL = 'https://api.tiles.mapbox.com/v4/directions/mapbox.walking/'+ startCoord + ';' + endCoord +'.json?steps=true&geometries=geojson&access_token=' +'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
+                 console.log(directionsURL);
+                 var line;
+                 $.ajax({
+                     type: "GET",
+                     url:directionsURL,
+                     async:false,
+                     success:function(data) {
+                         console.log(data);
+                         line = data.routes[0].geometry;
+                     }
+                 });
+
+                 console.log(line)
+                 $.get("{% static "myfile.geojson" %}", function(data) {
+                     var project = JSON.parse(data);
+                     console.log(project.features[0]);
+                     var nearby = [];
+                     project.features.forEach(function (point) {
+                         if(turf.pointToLineDistance(point, line, {units: 'miles'})<0.2){
+                             nearby.push(point)
+                         }
+                     });
+                     console.log(nearby)
+                     document.getElementById("project").innerHTML = "";
+                     $("li.content").css({"display":"inline"});
+                            //update instructions
+                        var instructions = document.getElementById('project');
+                        nearby.forEach(function(pro) {
+                         instructions.insertAdjacentHTML('beforeend', pro.properties.description);
+                        });
+                 });
+             };
+        })
 </script>
 </body>
 </html>
