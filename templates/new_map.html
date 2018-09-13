@@ -31,8 +31,8 @@
 
     <style>
         .navbar-default {
-            background-color: #333333;
-            border-color: #333333;
+            background-color: #6680cc;
+            border-color: #6680cc;
         }
 
         body { margin:0; padding:0; }
@@ -50,7 +50,7 @@
             top: 0;
             bottom: 0;
             padding: 1px;
-            background-color: ##474a56;
+            background-color: #6680cc;
             overflow-y: scroll;
             font-family: Verdana;
             font-size: 11px;
@@ -65,7 +65,7 @@
             top: 0;
             bottom: 0;
             padding: 1px;
-            background-color: #474a56;
+            background-color: #6680cc;
             overflow-y: scroll;
             font-family: Verdana;
             font-size: 11px;
@@ -80,14 +80,14 @@
             font-size:11px;
             top:100px;
             left:5px;
-            background-color: #474a56;
+            background-color: #6680cc;
             color: white;
             opacity:1;
         }
 
         ul.pin-top li {
             padding: 1em;
-            background-color: #474a56;
+            background-color: #6680cc;
             color: white;
             opacity: 1;
         }
@@ -99,14 +99,14 @@
 
         li.fill-white {
             padding: .5em 1em 1em 1em;
-            background-color: #474a56;
+            background-color: #6680cc;
             color:white;
             opacity: 0.9;
         }
 
         li.content {
             display: none;
-            background-color: #474a56;
+            background-color: #6680cc;
             color:white;
             opacity: 1;
 
@@ -114,7 +114,7 @@
 
         li.fill-white .content {
             display: block;
-            background-color: #474a56;
+            background-color: #6680cc;
             color:white;
             opacity: 1;
         }
@@ -133,7 +133,7 @@
         }
 
         .fill-blue {
-        background: #3887be;
+        background: #47bdbd;
         font-size: 11px;
         }
 
@@ -161,7 +161,7 @@
 
         #searchresults {
             width: 200%;
-            background: #474a56;
+            background: #6680cc;
             color:#323643;
         }
 
@@ -209,13 +209,11 @@
         <div id="navbar-collapse" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'service' %}">Our Services</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
             <li class="dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle">Our Services</a>
               <ul class="dropdown-menu">
-                <li><a href="about.html">Walking Function</a></li>
-                <li><a href="portfolio.html">Driving function</a></li>
+                <li><a href="{% url 'map' %}">Walking Function</a></li>
+                <li><a href="#">Coming Soon</a></li>
                 <!--<li><a href="portfolio-single.html">Portfolio Single</a></li>
                 <li class="dropdown-submenu dropdown">
                   <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>Sub Menu</span></a>
@@ -229,13 +227,16 @@
                 <li><a href="services.html">Services</a></li>-->
               </ul>
             </li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
+
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <!--<li><a href="{% url 'contact' %}">Contact</a></li>-->
           </ul>
         </div>
       </div>
     </nav></div>
 
     <div id='map'></div>
+
     <!--<ul class='pin-top pad1 quiet space-top2 space-left2 col3'>-->
     <ul class='pin-top quiet col3'>
 
@@ -270,11 +271,17 @@
     <li id='title-block' class='fill-denim dark keyline-bottom'>
         <!--<p class='col10 space-top0'>Find Nearby Public Transportation</p>-->
         <!--<p class='col2 button fr fill-denim icon refresh short'></p>
-        <div class='co18 margin1 button short fr fill-blue refresh'> Reset Map</div>-->
+        <div class='co18 margin1 button short fr fill-blue refresh'> Reset Map</div>
+
+        <div class='co18 margin1 button short fr fill-blue' id='test'>Hide test</div>-->
         <div class='co18 margin1 button short fr fill-blue' id='hideproject'>Hide Project</div>
         <div class='co18 margin1 button short fr fill-blue' id='hidetoilet'>Hide Toilet</div>
     </li>
 </ul>
+       <ul class='pin-topleft pad1 modal'>
+            <div class='button icon mt' onclick="tiltMap()">Show 3D Elevation</div>
+            <div class='button icon undo col12 tiltcontrols' onclick="restoreMap()">Edit route</div>
+        </ul>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
         var map = new mapboxgl.Map({
@@ -404,6 +411,22 @@
             map.on('mouseleave', 'toilet', function () {
                 map.getCanvas().style.cursor = '';
             });
+
+            var volume=false;
+            $('#test').on('click', function(){
+                if(!volume){
+                    map.flyTo({
+                      pitch: 80,
+                    });
+                    volume = true;
+                }
+                else{
+                    map.flyTo({
+                      pitch: 0,});
+                     volume = false;
+                }
+                });
+
 
 
 
@@ -564,6 +587,8 @@
                     });
                     document.getElementById("geocoder_1").getElementsByTagName('input')[0].placeholder = 'My Location';
                 });
+
+
 
 
              function getRouteInfo ( start_point, destination ) {
