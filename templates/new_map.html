@@ -287,7 +287,7 @@
         map.on('load', function () {
              map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/dc41a050/icons8-under-construction-50.png', function(error, image) {
                     if (error) throw error;
-                    map.addImage('cat', image);
+                    map.addImage('roadwork', image);
                     map.addSource('roadconstruction',{
                         type: 'geojson',
                         data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/f7561bf3/myfile.geojson'
@@ -298,7 +298,26 @@
                         "type": "symbol",
                         "source": 'roadconstruction',
                         "layout": {
-                                "icon-image": "cat",
+                                "icon-image": "roadwork",
+                                "icon-size": 0.5,
+                                "icon-allow-overlap": true
+                            }
+                    });});
+
+             map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/dc41a050/icons8-under-construction-50.png', function(error, image) {
+                    if (error) throw error;
+                    map.addImage('toilet_image', image);
+                    map.addSource('toilet',{
+                        type: 'geojson',
+                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/b24194b1/toilet.geojson'
+                    })
+
+                    map.addLayer({
+                        "id": "places",
+                        "type": "symbol",
+                        "source": 'toilet',
+                        "layout": {
+                                "icon-image": "toilet_image",
                                 "icon-size": 0.5,
                                 "icon-allow-overlap": true
                             }
