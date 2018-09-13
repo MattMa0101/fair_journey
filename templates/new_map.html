@@ -77,7 +77,7 @@
         ul.pin-top {
             border-radius: 3px;
             opacity: 1;
-            font-size:11px;w
+            font-size:11px;
             top:100px;
             left:5px;
             background-color: #474a56;
@@ -211,13 +211,12 @@
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'service' %}">Our Services</a></li>
             <li><a href="{% url 'about' %}">About Us</a></li>
-            <!--<li><a href="gallery.html">Gallery</a></li>
             <li class="dropdown">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Our Services</a>
               <ul class="dropdown-menu">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="portfolio-single.html">Portfolio Single</a></li>
+                <li><a href="about.html">Walking Function</a></li>
+                <li><a href="portfolio.html">Driving function</a></li>
+                <!--<li><a href="portfolio-single.html">Portfolio Single</a></li>
                 <li class="dropdown-submenu dropdown">
                   <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>Sub Menu</span></a>
                   <ul class="dropdown-menu">
@@ -227,10 +226,10 @@
                     <li><a href="#">Second Level Menu</a></li>
                   </ul>
                 </li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="services.html">Services</a></li>-->
               </ul>
             </li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>-->
+            <li><a href="{% url 'contact' %}">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -251,12 +250,13 @@
                 <div> Destination</div>
            <div id='geocoder_2' class='row1 space-top1'></div>
         </div>
+
     </li>
 
-    <!--<li id='destination' class='fill-gray keyline-bottom'>
+    <li id='destination' class='fill-gray keyline-bottom'>
         <span class='label'>Destination</span>
         <div class='selection'></div>
-    </li>-->
+    </li>
 
     <li id='route-info' class='fill-gray'>
         <p><span class='label'><b>STEPS:</b></span></p>
@@ -288,7 +288,7 @@
         });
 
         map.on('load', function () {
-             map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
+             map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/dc41a050/icons8-under-construction-50.png', function(error, image) {
                     if (error) throw error;
                     map.addImage('cat', image);
                     map.addSource('roadconstruction',{
@@ -302,7 +302,7 @@
                         "source": 'roadconstruction',
                         "layout": {
                                 "icon-image": "cat",
-                                "icon-size": 0.25,
+                                "icon-size": 0.5,
                                 "icon-allow-overlap": true
                             }
                     });});
@@ -448,16 +448,42 @@
                 getRouteInfo(start_point, destination);
                 getDistance(start_point, destination)};
             });
-                var geolocate = new mapboxgl.GeolocateControl({
-                                    positionOptions: {
-                                        enableHighAccuracy: true
-                                    },
-                                    trackUserLocation: true
+                    var geolocate = new mapboxgl.GeolocateControl({
+                                showUserLocationObject: true
                                 });
                 map.addControl(geolocate);
+
                 geolocate.on('geolocate',(e) =>{
+                    document.getElementsByClassName("mapboxgl-user-location-dot mapboxgl-marker mapboxgl-marker-anchor-center")[0].style.visibility = "hidden";
                     start_point = [e.coords.longitude, e.coords.latitude]
                     console.log(start_point )
+                    map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', (error, image) => {
+                        console.log(e)
+                        if (error) throw error;
+                        map.addImage('cat1', image);
+                        map.addLayer({
+                            "id": "user",
+                            "type": "symbol",
+                            "source": {
+                                "type": "geojson",
+                                "data": {
+                                    "type": "FeatureCollection",
+                                    "features": [{
+                                        "type": "Feature",
+                                        "geometry": {
+                                            "type": "Point",
+                                            "coordinates": [e.coords.longitude, e.coords.latitude]
+                                        }
+                                    }]
+                                }
+                            },
+                            "layout": {
+                                "icon-image": "cat1",
+                                "icon-allow-overlap": true,
+                                "icon-size": 0.3
+                            }
+                        });
+                    });
                 });
 
 
