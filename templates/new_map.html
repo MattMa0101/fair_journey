@@ -245,20 +245,17 @@
         <div>Start Point</div>
            <div id='geocoder_1' class='row1 space-top1'></div>
         </div>
-
-            <div class='content'>
+         <div class='content'>
                 <div> Destination</div>
            <div id='geocoder_2' class='row1 space-top1'></div>
         </div>
-
     </li>
-
     <li id='destination' class='fill-gray keyline-bottom'>
         <span class='label'>Destination</span>
         <div class='selection'></div>
     </li>
 
-    <li id='route-info' class='fill-gray'>
+    <li id='route-info' class='fill-gray keyline-bottom'>
         <p><span class='label'><b>STEPS:</b></span></p>
         <div id='instructions' class='content row6'>
         </div>
@@ -423,7 +420,27 @@
                     }
             });
 
+            map.addSource('route_2', {
+              type: 'geojson',
+             data: {
+                type: 'FeatureCollection',
+                features: [] // Notice that initially there are no features
+              }
+            });
 
+            map.addLayer({
+                    id: 'route_2',
+                    source: 'route_2',
+                    type: 'line',
+                    layout: {
+                        "line-join": "round",
+                        "line-cap": "round"
+                    },
+                    paint: {
+                        "line-color": "#eb4706",
+                        "line-width": 4
+                    }
+            });
             var start_point;
 
             geocoder_1.on('result', function(ev) {
@@ -455,9 +472,9 @@
 
                 geolocate.on('geolocate',(e) =>{
                     document.getElementsByClassName("mapboxgl-user-location-dot mapboxgl-marker mapboxgl-marker-anchor-center")[0].style.visibility = "hidden";
-                    start_point = [e.coords.longitude, e.coords.latitude]
-                    console.log(start_point )
-                    map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', (error, image) => {
+                    start_point = [e.coords.longitude, e.coords.latitude];
+                    console.log(start_point );
+                    map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/40c5efb2/if_Facebook_UI-07_2344289.png', (error, image) => {
                         console.log(e)
                         if (error) throw error;
                         map.addImage('cat1', image);
@@ -480,10 +497,11 @@
                             "layout": {
                                 "icon-image": "cat1",
                                 "icon-allow-overlap": true,
-                                "icon-size": 0.3
+                                "icon-size": 0.15
                             }
                         });
                     });
+                    document.getElementById("geocoder_1").getElementsByTagName('input')[0].placeholder = 'My Location';
                 });
 
 
@@ -517,6 +535,16 @@
                          steps.forEach(function(step) {
                              instructions.insertAdjacentHTML('beforeend', '<p>' + step.maneuver.instruction + '</p>');
                          });
+                         var route_2 = data.routes[1].geometry;
+                         var geoJSON_2 = {
+                             "type": "Feature",
+                             "properties": {
+                             "stroke": "#63aebb",
+                             "stroke-width": "5"
+                             }
+                          };
+                         geoJSON_2.geometry = route_2;
+                         map.getSource('route_2').setData(geoJSON_2);
                      }
                  });
 
