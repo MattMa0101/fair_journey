@@ -269,9 +269,10 @@
 
     <li id='title-block' class='fill-denim dark keyline-bottom'>
         <!--<p class='col10 space-top0'>Find Nearby Public Transportation</p>-->
-        <!--<p class='col2 button fr fill-denim icon refresh short'></p>-->
-        <div class='col4 margin1 button short fr fill-blue refresh'> Reset Map</div>
-        <div class='col4 margin1 button short fr fill-blue' id='hideproject'>Hide Project</div>
+        <!--<p class='col2 button fr fill-denim icon refresh short'></p>
+        <div class='co18 margin1 button short fr fill-blue refresh'> Reset Map</div>-->
+        <div class='co18 margin1 button short fr fill-blue' id='hideproject'>Hide Project</div>
+        <div class='co18 margin1 button short fr fill-blue' id='hidetoilet'>Hide Toilet</div>
     </li>
 </ul>
     <script>
@@ -304,7 +305,7 @@
                             }
                     });});
 
-             map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/dc41a050/icons8-under-construction-50.png', function(error, image) {
+             map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/d7527193/if_toilet_103227.png', function(error, image) {
                     if (error) throw error;
                     map.addImage('toilet_image', image);
                     map.addSource('toilet',{
@@ -313,12 +314,12 @@
                     })
 
                     map.addLayer({
-                        "id": "places",
+                        "id": "toilet",
                         "type": "symbol",
                         "source": 'toilet',
                         "layout": {
                                 "icon-image": "toilet_image",
-                                "icon-size": 0.5,
+                                "icon-size": 0.05,
                                 "icon-allow-overlap": true
                             }
                     });});
@@ -364,6 +365,47 @@
                 $('.refresh').on('click', function(){
                 document.location.reload(true);
             });
+
+             map.on('click', 'toilet', function (e) {
+                var coordinates = e.features[0].geometry.coordinates.slice();
+                var description = e.features[0].properties.description;
+
+                // Ensure that if the map is zoomed out such that multiple
+                // copies of the feature are visible, the popup appears
+                // over the copy being pointed to.
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                }
+
+                new mapboxgl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(map);
+            });
+
+            $('#hidetoilet').on('click', function(){
+                console.log(document.getElementById('hidetoilet').innerHTML)
+                if(document.getElementById('hidetoilet').innerHTML == "Hide Toilet"){
+                    map.setLayoutProperty('toilet', 'visibility', 'none');
+                    document.getElementById('hidetoilet').innerHTML = "Show Toilet";
+                }
+                else {
+                    map.setLayoutProperty('toilet', 'visibility', 'visible');
+                    document.getElementById('hidetoilet').innerHTML = "Hide Toilet";
+                }
+                });
+
+            // Change the cursor to a pointer when the mouse is over the places layer.
+            map.on('mouseenter', 'toilet', function () {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'toilet', function () {
+                map.getCanvas().style.cursor = '';
+            });
+
+
 
             var geocoder_1 = new MapboxGeocoder({
               accessToken: mapboxgl.accessToken
