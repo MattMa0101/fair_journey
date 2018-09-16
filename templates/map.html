@@ -182,6 +182,7 @@ map.on('load', function () {
                 "icon-allow-overlap": true
             }
     });
+
     map.on('click', 'places', function (e) {
         var coordinates = e.features[0].geometry.coordinates.slice();
         var description = e.features[0].properties.description;
@@ -222,6 +223,8 @@ function updateRoute() {
 
 // make a directions request
 function getMatch(e) {
+    console.log(e);
+    console.log(typeof e);
   var url = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + e +'?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
   var req = new XMLHttpRequest();
   req.responseType = 'json';
