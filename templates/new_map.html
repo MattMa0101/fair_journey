@@ -79,9 +79,13 @@
         }
 
         #toggle  {
-            top:88px;
+            height:30px;
+            width:30px;
+            top:90px;
             position: absolute;
             left: 300px;
+            background-color: #000000;
+            color:#ffffff;
     }
         ul.pin-top {
             border-radius: 3px;
@@ -248,7 +252,7 @@
     </nav></div>
 
     <div id='map'></div>
-    <button id="toggle">toggle</button>
+    <button id="toggle">&#9776</button>
     <!--<ul class='pin-top pad1 quiet space-top2 space-left2 col3'>-->
 
     <ul id="sidebar" class='pin-top quiet col3'>
@@ -288,7 +292,7 @@
 
          <li id='title-block' class='fill-denim dark keyline-bottom'>
             <div class='co14 margin1 button short fr fill-blue refresh'>Refresh</div>
-            <div class='co14 margin1 button short fr fill-blue' id='hidetoilet'>Pedestrain</div>
+            <div class='co14 margin1 button short fr fill-blue' id='test'>Pedestrain</div>
         </li>
     </ul>
 
@@ -315,6 +319,7 @@
           zoom: 13, // starting zoom
           minZoom: 9 // keep it local
         });
+        var start_point,destination, routines;
 
         map.on('load', function () {
              map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/dc41a050/icons8-under-construction-50.png', function(error, image) {
@@ -334,9 +339,10 @@
                                 "icon-size": 0.5,
                                 "icon-allow-overlap": true
                             }
-                    });});
+                    });
+             });
 
-             map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/d7527193/if_toilet_103227.png', function(error, image) {
+            map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/d7527193/if_toilet_103227.png', function(error, image) {
                     if (error) throw error;
                     map.addImage('toilet_image', image);
                     map.addSource('toilet',{
@@ -353,7 +359,8 @@
                                 "icon-size": 0.05,
                                 "icon-allow-overlap": true
                             }
-                    });});
+                    });
+            });
 
             map.on('click', 'places', function (e) {
                 var coordinates = e.features[0].geometry.coordinates.slice();
@@ -383,7 +390,10 @@
                     document.getElementById('hideproject').innerHTML = "Hide Project";
                 }
                 });
-
+            $('#pedestrain').on('click', function(){
+                document.getElementById('map').innerHTML = "";
+                getVolume();
+            })
     // Change the cursor to a pointer when the mouse is over the places layer.
             map.on('mouseenter', 'places', function () {
                 map.getCanvas().style.cursor = 'pointer';
@@ -393,7 +403,8 @@
             map.on('mouseleave', 'places', function () {
                 map.getCanvas().style.cursor = '';
             });
-                $('.refresh').on('click', function(){
+
+            $('.refresh').on('click', function(){
                 document.location.reload(true);
             });
 
@@ -409,12 +420,21 @@
                 }
                 console.log(coordinates);
                 destination = coordinates;
-                getRouteInfo(start_point, destination);
+                if(start_point != null && destination != null){
+                    getRouteInfo(start_point, destination);}
             });
             var popup = new mapboxgl.Popup({
                     closeButton: false,
                     closeOnClick: false
                 });
+
+            map.on('click',  function (e) {
+                var lon = e.lngLat.lng;
+                var lat = e.lngLat.lat;
+                console.log(map.getSource(map.getLayer('route1').source)._data.geometry);
+                //getDistance(start_point, destination);
+                updateRoutine(start_point,destination,[lon.toFixed(4),lat.toFixed(4)])
+            });
 
             map.on('mouseenter', 'toilet', function(e) {
                 // Change the cursor style as a UI indicator.
@@ -487,55 +507,65 @@
               accessToken: mapboxgl.accessToken
             });
 
-            document.getElementById('geocoder_1').appendChild(geocoder_1.onAdd(map))
+            document.getElementById('geocoder_1').appendChild(geocoder_1.onAdd(map));
 
             var geocoder_2 = new MapboxGeocoder({
               accessToken: mapboxgl.accessToken
             });
 
-            document.getElementById('geocoder_2').appendChild(geocoder_2.onAdd(map))
+            document.getElementById('geocoder_2').appendChild(geocoder_2.onAdd(map));
 
-            map.addSource('single-point', {
-              type: 'geojson',
-              data: {
-                type: 'FeatureCollection',
-                features: [] // Notice that initially there are no features
-              }
-            });
+            map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/40c5efb2/if_Facebook_UI-07_2344289.png', (error, image) => {
 
-            map.addLayer({
-              id: 'start',
-              source: 'single-point',
-              type: 'circle',
-              "layout": {
-                         "icon-image": "cat1",
+                 if (error) throw error;
+                 map.addImage('start_img', image);
+                 map.addSource('my_location', {
+                         "type": "geojson",
+                         "data": {
+                             "type": "FeatureCollection",
+                             "features": []
+                         }
+                     });
+
+                 map.addLayer({
+                     "id": "user",
+                     "type": "symbol",
+                     "source": "my_location",
+                     "layout": {
+                         "icon-image": "start_img",
                          "icon-allow-overlap": true,
                          "icon-size": 0.15
                      }
-            });
+                 });
+             });
 
-            map.addSource('end-point', {
-              type: 'geojson',
-              data: {
-                type: 'FeatureCollection',
-                features: [] // Notice that initially there are no features
-              }
-            });
 
-            map.addLayer({
-              id: 'end',
-              source: 'end-point',
-              type: 'circle',
-              paint: {
-                'circle-radius': 10,
-                'circle-color': '#007cbf',
-                'circle-stroke-width': 3,
-                'circle-stroke-color': '#fff'
-              }
-            });
+            map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/540a482b/icons8-destination-50.png', (error, image) => {
+
+                 if (error) throw error;
+                 map.addImage('destination_img', image);
+                 map.addSource('my_destination', {
+                         "type": "geojson",
+                         "data": {
+                             "type": "FeatureCollection",
+                             "features": []
+                         }
+                     });
+
+                 map.addLayer({
+                     "id": "destination",
+                     "type": "symbol",
+                     "source": "my_destination",
+                     "layout": {
+                         "icon-image": "destination_img",
+                         "icon-allow-overlap": true,
+                         "icon-size": 0.5
+                     }
+                 });
+             });
 
             var route_list = ["route1","route2","route3","route4","route5"];
-            var color_list = ["#63aebb","#eb4706", "#BF9C14","#BF9C14","#BF9C14"]
+            var color_list = ["#63aebb","#eb4706", "#bf280c","#69bf22","#BF9C14"]
 
             for (i = 0; i<5; i++){
                 map.addSource(route_list[i], {
@@ -560,7 +590,6 @@
                     }});
             }
 
-            var start_point;
 
             geocoder_1.on('result', function(ev) {
                 console.log(ev);
@@ -573,49 +602,24 @@
             });
 
 
-            var destination;
-
             geocoder_2.on('result', function(ev) {
                 console.log(ev);
                 destination = ev.result.geometry.coordinates;
                 console.log(destination);
                 var searchResult = ev.result.geometry;
-                map.getSource('end-point').setData(searchResult);
+                map.getSource('my_destination').setData(searchResult);
                 if(start_point != null && destination != null){
                 getRouteInfo(start_point, destination);
                // getDistance(start_point, destination)
-                    };
+                };
             });
 
             var geolocate = new mapboxgl.GeolocateControl({
                     showUserLocationObject: true
             });
 
-             map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/40c5efb2/if_Facebook_UI-07_2344289.png', (error, image) => {
-
-                 if (error) throw error;
-                 map.addImage('cat1', image);
-                 map.addSource('my_location', {
-                         "type": "geojson",
-                         "data": {
-                             "type": "FeatureCollection",
-                             "features": []
-                         }
-                     });
-
-                 map.addLayer({
-                     "id": "user",
-                     "type": "symbol",
-                     "source": "my_location",
-                     "layout": {
-                         "icon-image": "cat1",
-                         "icon-allow-overlap": true,
-                         "icon-size": 0.15
-                     }
-                 });
-             });
-
             map.addControl(geolocate);
+
             geolocate.on('geolocate',(e) =>{
                     document.getElementsByClassName("mapboxgl-user-location-dot mapboxgl-marker mapboxgl-marker-anchor-center")[0].style.visibility = "hidden";
                     start_point = [e.coords.longitude, e.coords.latitude];
@@ -635,19 +639,18 @@
                 });
 
 
-
-
-
-
-             function getRouteInfo (start_point, destination ) {
+            function getRouteInfo (start_point, destination) {
                  var route_list = ["route1","route2","route3","route4","route5"];
                  var startCoord = start_point.toString();
                  var endCoord = destination.toString();
+
                  var directionsURL = 'https://api.tiles.mapbox.com/v4/directions/mapbox.walking/'+ startCoord + ';' + endCoord +'.json?steps=true&geometries=geojson&access_token=' +'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
                  var blank = {
                         type: 'FeatureCollection',
                         features: [] // Notice that initially there are no features
                     };
+
+                 point_list =start_point.toString() +";"+ destination.toString();
                  route_list.forEach(function (e) {
                      map.getSource(e).setData(blank)
                  });
@@ -664,7 +667,7 @@
                          data.routes.forEach(function (line) {
                              var route_list = ["route1","route2","route3","route4","route5"];
                              var route = line.geometry;
-
+                             routines = line.geometry;
                              var geoJSON = {
                                  "type": "Feature",
                                  "properties": {
@@ -688,16 +691,16 @@
                              center: center_p,
                              zoom: 14
                          })
-                         console.log(getDistance(start_point,destination))
+                         //console.log(getDistance(start_point,destination))
                      }
                  });
 
              };
 
-             function getDistance (start_point, destination ) {
+            function getDistance(start_point, destination) {
                  var startCoord = start_point.toString();
                  var endCoord = destination.toString();
-                 var directionsURL = 'https://api.tiles.mapbox.com/v4/directions/mapbox.walking/'+ startCoord + ';' + endCoord +'.json?steps=true&geometries=geojson&access_token=' +'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
+                 var directionsURL = 'https://api.tiles.mapbox.com/v5/directions/mapbox.walking/'+ startCoord + ';' + endCoord +'.json?steps=true&geometries=geojson&access_token=' +'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
                  console.log(directionsURL);
                  var line;
                  $.ajax({
@@ -731,8 +734,69 @@
                       //  });
                  });
                  return nearby.length
-             };
-        })
+            }
+
+            var point_list;
+
+            function updateRoutine(start_point, destination, midpoint) {
+                var shortest = 10000000;
+                var short_routine;
+                route_list.forEach(function (e) {
+                    if (map.getSource(map.getLayer(e).source)._data.geometry != undefined){
+                        var line = map.getSource(map.getLayer(e).source)._data.geometry;
+                        console.log(line);
+                        if(turf.pointToLineDistance(midpoint, line, {units: 'miles'}) < shortest) {
+                            shortest = turf.pointToLineDistance(midpoint, line, {units: 'miles'});
+                            short_routine = e;
+                        }
+                    }
+                });
+                console.log(short_routine);
+                var endCoord = destination.toString();
+                console.log(endCoord.length);
+                var request_list = point_list.substr(0,point_list.length - endCoord.length) + midpoint.toString() + ";" +endCoord;
+                console.log(request_list)
+                console.log(point_list)
+                var directionsURL ='https://api.mapbox.com/directions/v5/mapbox/walking/' + request_list +'?geometries=geojson&steps=true&&access_token=' +'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
+                console.log(directionsURL);
+                var line;
+                 $.ajax({
+                     type: "GET",
+                     url:directionsURL,
+                     async:false,
+                     success:function(data) {
+                         console.log(data);
+                         var route = data.routes[0].geometry;
+                         var geoJSON = {
+                                 "type": "Feature",
+                                 "properties": {
+                                     "stroke": "#63aebb",
+                                     "stroke-width": "5"
+                                 }
+                             };
+
+                             geoJSON.geometry = route;
+                             map.getSource(short_routine).setData(geoJSON)
+                     }
+                 });
+            }
+            })
+          function getVolume() {
+                    L.mapbox.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejkyYm9qbjAwdm8yd3RlaXNtZmN3a3gifQ.Uc9LFNtZpBHYc00cU-tQUA';
+                    var map1 = L.mapbox.map('map', 'duncangraham.b134a19e',{
+                    tileSize: 5120,
+                    zoomControl: false,
+                    minZoom: 10,
+                    maxZoom: 20,})
+                    .setView([-37.832, 144.904], 15);
+                    var elevIcon=L.divIcon({className: 'elevations', html: '<div class="elevmarker"><div class="markerline" style="background:#ff5c00; height:'+10*5 +'px">'+'</div><div class="elevfigure">'+10+'m <span style="font-size:0.8em">'+ 20+'</span></div>'});
+                    L.marker([144.9631,-37.8136], {icon: elevIcon}).addTo(map1);
+                    map1.fitBounds(map1.featureLayer.setGeoJSON(turf.linestring(routines)).getBounds(),{
+                    paddingTopLeft:[150,50],
+                    paddingBottomRight:[150,50]
+        });
+          }
+
 </script>
 </body>
 </html>
