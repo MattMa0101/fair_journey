@@ -292,7 +292,7 @@
 
          <li id='title-block' class='fill-denim dark keyline-bottom'>
             <div class='co14 margin1 button short fr fill-blue refresh'>Refresh</div>
-            <div class='co14 margin1 button short fr fill-blue' id='crowded'>Hide Pedstrain</div>
+            <div class='co14 margin1 button short fr fill-blue' id='crowded'>Hide pedestrian</div>
         </li>
     </ul>
 
@@ -411,13 +411,13 @@
                 }
                 });
             $('#crowded').on('click', function(){
-                if(document.getElementById('crowded').innerHTML == "Hide Pedstrain"){
+                if(document.getElementById('crowded').innerHTML == "Hide pedestrian"){
                     map.setLayoutProperty('crowded', 'visibility', 'none');
-                    document.getElementById('crowded').innerHTML = "Show Pedstrain";
+                    document.getElementById('crowded').innerHTML = "Show pedestrian";
                 }
                 else {
                     map.setLayoutProperty('crowded', 'visibility', 'visible');
-                    document.getElementById('crowded').innerHTML = "Hide Pedstrain";
+                    document.getElementById('crowded').innerHTML = "Hide pedestrian";
                 }
                 });
     // Change the cursor to a pointer when the mouse is over the places layer.
