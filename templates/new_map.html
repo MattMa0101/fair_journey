@@ -362,6 +362,26 @@
                     });
             });
 
+            map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/f8450fa1/icons8-crowd-filled-50.png', function(error, image) {
+                    if (error) throw error;
+                    map.addImage('crowd', image);
+                    map.addSource('toilet',{
+                        type: 'geojson',
+                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/b24194b1/toilet.geojson'
+                    })
+
+                    map.addLayer({
+                        "id": "toilet",
+                        "type": "symbol",
+                        "source": 'toilet',
+                        "layout": {
+                                "icon-image": "crowd",
+                                "icon-size": 0.05,
+                                "icon-allow-overlap": true
+                            }
+                    });
+            });
+
             map.on('click', 'places', function (e) {
                 var coordinates = e.features[0].geometry.coordinates.slice();
                 var description = e.features[0].properties.description;
