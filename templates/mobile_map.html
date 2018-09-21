@@ -144,9 +144,10 @@
             opacity: 0.9;
         }
 
-        .fill-blue {
-        background: #47bdbd;
-        font-size: 11px;
+        .button {
+            background: #47bdbd;
+            font-size: 11px;
+            position:absolute;
         }
 
         .fr {
@@ -252,66 +253,15 @@
     </nav></div>
 
     <div id='map'></div>
-    <button id="toggle">&#9776</button>
     <!--<ul class='pin-top pad1 quiet space-top2 space-left2 col3'>-->
 
-    <ul id="sidebar" class='pin-top quiet col3'>
-        <li id='dst-location' class='fill-white keyline-bottom'>
-            <!--<span class='label'>Choose starting location</span>-->
-            <div class='content'>
-                <div>Start Point</div>
-                <div id='geocoder_1' class='row1 space-top1'></div>
-            </div>
-            <div class='content'>
-                <div> Destination</div>
-                <div id='geocoder_2' class='row1 space-top1'></div>
-            </div>
-        </li>
+    <div class='co16 margin1 button short fr fill-blue' id='hideproject'>Hide Project</div>
+    <div class='co16 margin1 button short fr fill-blue' id='hidetoilet'>Hide Toilet</div>
+    <div class='co14 margin1 button short fr fill-blue refresh'>Refresh</div>
+    <div class='co14 margin1 button short fr fill-blue' id='crowded'>Hide pedestrian</div>
 
-        <li id='destination' class='fill-gray keyline-bottom'>
-            <span class='label'>Destination</span>
-            <div class='selection'></div>
-        </li>
-
-        <li id='route-info' class='fill-gray keyline-bottom'>
-            <p><span class='label'><b>Selection:</b></span></p>
-            <div id='instructions' class='content row3'>
-            </div>
-        </li>
-<!--
-    <li id='route-info' class='fill-gray'>
-        <p><span class='label'><b>Road Construction:</b></span></p>
-        <div id='project' class='content row4'>
-        </div>
-    </li>-->
-
-        <li id='title-block' class='fill-denim dark keyline-bottom'>
-            <div class='co16 margin1 button short fr fill-blue' id='hideproject'>Hide Project</div>
-            <div class='co16 margin1 button short fr fill-blue' id='hidetoilet'>Hide Toilet</div>
-
-        </li>
-
-         <li id='title-block' class='fill-denim dark keyline-bottom'>
-            <div class='co14 margin1 button short fr fill-blue refresh'>Refresh</div>
-            <div class='co14 margin1 button short fr fill-blue' id='crowded'>Hide pedestrian</div>
-        </li>
-    </ul>
 
     <script>
-       var button = document.getElementById('toggle'),
-       sidebar = document.getElementById('sidebar');
-
-
-       button.onclick = function() {
-           if (sidebar.style.display === "none") {
-            sidebar.style.display = "block";
-            button.style.left = "300px";
-        } else {
-            sidebar.style.display = "none";
-            button.style.left = "0px";
-    }
-       }
-
         mapboxgl.accessToken = 'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
         var map = new mapboxgl.Map({
           container: 'map', // container id
@@ -320,6 +270,7 @@
           zoom: 14.5, // starting zoom
           minZoom: 9 // keep it local
         });
+
         var start_point,destination, routines;
 
         map.on('load', function () {
@@ -411,6 +362,7 @@
                     document.getElementById('hideproject').innerHTML = "Hide Project";
                 }
                 });
+
             $('#crowded').on('click', function(){
                 if(document.getElementById('crowded').innerHTML == "Hide pedestrian"){
                     map.setLayoutProperty('crowded', 'visibility', 'none');
@@ -421,6 +373,7 @@
                     document.getElementById('crowded').innerHTML = "Hide pedestrian";
                 }
                 });
+
     // Change the cursor to a pointer when the mouse is over the places layer.
             map.on('mouseenter', 'places', function () {
                 map.getCanvas().style.cursor = 'pointer';
@@ -450,18 +403,12 @@
                 if(start_point != null && destination != null){
                     getRouteInfo(start_point, destination);}
             });
+
             var popup = new mapboxgl.Popup({
                     closeButton: false,
                     closeOnClick: false
                 });
-
-            map.on('click',  function (e) {
-                var lon = e.lngLat.lng;
-                var lat = e.lngLat.lat;
-                console.log(map.getSource(map.getLayer('route1').source)._data.geometry);
-                //getDistance(start_point, destination);
-                updateRoutine(start_point,destination,[lon.toFixed(4),lat.toFixed(4)])
-            });
+            w
 
             map.on('mouseenter', 'toilet', function(e) {
                 // Change the cursor style as a UI indicator.
@@ -537,37 +484,6 @@
                 map.getCanvas().style.cursor = '';
             });
 
-            var volume=false;
-
-            $('#test').on('click', function(){
-
-                if(!volume){
-                    map.flyTo({
-                      pitch: 80,
-                    });
-                    volume = true;
-                }
-                else{
-                    map.flyTo({
-                      pitch: 0,});
-                     volume = false;
-                }
-                });
-
-
-
-
-            var geocoder_1 = new MapboxGeocoder({
-              accessToken: mapboxgl.accessToken
-            });
-
-            document.getElementById('geocoder_1').appendChild(geocoder_1.onAdd(map));
-
-            var geocoder_2 = new MapboxGeocoder({
-              accessToken: mapboxgl.accessToken
-            });
-
-            document.getElementById('geocoder_2').appendChild(geocoder_2.onAdd(map));
 
             map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/40c5efb2/if_Facebook_UI-07_2344289.png', (error, image) => {
 
@@ -618,55 +534,6 @@
                  });
              });
 
-            var route_list = ["route1","route2","route3","route4","route5"];
-            var color_list = ["#63aebb","#eb4706", "#bf280c","#69bf22","#BF9C14"]
-
-            for (i = 0; i<5; i++){
-                map.addSource(route_list[i], {
-                    type: 'geojson',
-                    data: {
-                        type: 'FeatureCollection',
-                        features: [] // Notice that initially there are no features
-                    }
-                });
-
-                map.addLayer({
-                    id: route_list[i],
-                    source: route_list[i],
-                    type: 'line',
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round"
-                    },
-                    paint: {
-                        "line-color": color_list[i],
-                        "line-width": 8
-                    }});
-            }
-
-
-            geocoder_1.on('result', function(ev) {
-                console.log(ev);
-                start_point = ev.result.geometry.coordinates;
-                var searchResult = ev.result.geometry;
-                map.getSource('my_location').setData(searchResult);
-
-                if(start_point != null && destination != null){
-                getRouteInfo(start_point, destination);};
-            });
-
-
-            geocoder_2.on('result', function(ev) {
-                console.log(ev);
-                destination = ev.result.geometry.coordinates;
-                console.log(destination);
-                var searchResult = ev.result.geometry;
-                map.getSource('my_destination').setData(searchResult);
-                if(start_point != null && destination != null){
-                getRouteInfo(start_point, destination);
-               // getDistance(start_point, destination)
-                };
-            });
 
             var geolocate = new mapboxgl.GeolocateControl({
                     showUserLocationObject: true
@@ -686,8 +553,6 @@
                                  }
                              }
                     map.getSource('my_location').setData(my_point)
-                    document.getElementById("geocoder_1").getElementsByTagName('input')[0].placeholder = 'My Location';
-                    document.getElementById("geocoder_1").getElementsByTagName('input')[0].value = "Current Location";
                     if(start_point != null && destination != null){
                         getRouteInfo(start_point, destination);};
                 });
@@ -751,48 +616,9 @@
 
              };
 
-            function getDistance(start_point, destination) {
-                 var startCoord = start_point.toString();
-                 var endCoord = destination.toString();
-                 var directionsURL = 'https://api.tiles.mapbox.com/v5/directions/mapbox.walking/'+ startCoord + ';' + endCoord +'.json?steps=true&geometries=geojson&access_token=' +'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
-                 console.log(directionsURL);
-                 var line;
-                 $.ajax({
-                     type: "GET",
-                     url:directionsURL,
-                     async:false,
-                     success:function(data) {
-                         console.log(data);
-                         line = data.routes[0].geometry;
-                     }
-                 });
-
-                 console.log(line)
-                 var nearby = [];
-                 $.get("{% static "myfile.geojson" %}", function(data) {
-                     var project = JSON.parse(data);
-                     console.log(project.features[0]);
-
-                     project.features.forEach(function (point) {
-                         if(turf.pointToLineDistance(point, line, {units: 'miles'})<0.2){
-                             nearby.push(point)
-                         }
-                     });
-                     console.log(nearby);
-                    // document.getElementById("project").innerHTML = "";
-                    // $("li.content").css({"display":"inline"});
-                            //update instructions
-                       // var instructions = document.getElementById('project');
-                       // nearby.forEach(function(pro) {
-                       //  instructions.insertAdjacentHTML('beforeend', pro.properties.description);
-                      //  });
-                 });
-                 return nearby.length
-            }
-
             var point_list;
 
-           /** function updateRoutine(start_point, destination, midpoint) {
+           function updateRoutine(start_point, destination, midpoint) {
                 var shortest = 10000000;
                 var short_routine;
                 route_list.forEach(function (e) {
@@ -835,20 +661,6 @@
                  });
             }
             })
-          function getVolume() {
-                    L.mapbox.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejkyYm9qbjAwdm8yd3RlaXNtZmN3a3gifQ.Uc9LFNtZpBHYc00cU-tQUA';
-                    var map1 = L.mapbox.map('map', 'duncangraham.b134a19e',{
-                    tileSize: 5120,
-                    zoomControl: false,
-                    minZoom: 10,
-                    maxZoom: 20,})
-                    .setView([-37.832, 144.904], 15);
-                    var elevIcon=L.divIcon({className: 'elevations', html: '<div class="elevmarker"><div class="markerline" style="background:#ff5c00; height:'+10*5 +'px">'+'</div><div class="elevfigure">'+10+'m <span style="font-size:0.8em">'+ 20+'</span></div>'});
-                    L.marker([144.9631,-37.8136], {icon: elevIcon}).addTo(map1);
-                    map1.fitBounds(map1.featureLayer.setGeoJSON(turf.linestring(routines)).getBounds(),{
-                    paddingTopLeft:[150,50],
-                    paddingBottomRight:[150,50]**/
-        })
 
 </script>
 </body>
