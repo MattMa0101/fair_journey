@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -7,7 +8,7 @@
     <title>The Fair Journey</title>
     <meta name="description" content="Free Bootstrap Theme by uicookies.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Bellefair|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles-merged.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
@@ -18,10 +19,8 @@
     <![endif]-->
   </head>
   <body>
-    
+
     <!-- Fixed navbar -->
-    
-    
     <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
       <div class="container">
         <div class="navbar-header">
@@ -36,9 +35,9 @@
 
         <div id="navbar-collapse" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'index' %}">HOME</a></li>
            <li class="dropdown">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Our Services</a>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">OUR SERVICES</a>
               <ul class="dropdown-menu">
                 <li><a href="{% url 'map' %}">Road construction information</a></li>
                 <li><a href="{% url 'map' %}">Plan your alternative route</a></li>
@@ -46,21 +45,11 @@
                 <li><a href="{% url 'map' %}">Nearest accessible public toilets</a></li>
                 <li><a href="{% url 'map' %}">Walking Function</a></li>
                 <li><a href="#">Coming Soon</a></li>
-                <!--<li><a href="portfolio-single.html">Portfolio Single</a></li>
-                <li class="dropdown-submenu dropdown">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>Sub Menu</span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                  </ul>
-                </li>
-                <li><a href="services.html">Services</a></li>-->
               </ul>
             </li>
-              <li><a href="{% url 'about' %}">About Us</a></li>
-            <!--<li><a href="{% url 'contact' %}">Contact</a></li>-->
+              <li><a href="{% url 'project' %}">EVENTS</a></li>
+              <li><a href="{% url 'contact' %}">PEDESTRIAN SAFETY</a></li>
+              <li><a href="{% url 'about' %}">ABOUT US</a></li>
           </ul>
         </div>
       </div>
@@ -89,7 +78,7 @@
               </div>
             </div>
           </div>
-          
+
         </li>
         <li style="background-image: url('{% static 'img/slider_6.jpg' %}')" class="overlay">
           <div class="container">
@@ -115,7 +104,7 @@
           </div>
           <div class="col-md-6 probootstrap-animate">
             <p style="text-align:justify">The Fair journey project is dedicated to helping the disability with mobility issues to avoid the inconvenience caused by construction during their travels. The project is committed to providing effective and efficent information to help them choose a more suitable travel plan that has reached the goal of building equality for all.</p>
-                
+
             <p style="text-align:justify">The Fair journey project timely and accurately update engineering and road information for the Melbourne CBD area through VICroad dataset and government open dataset. Customers can always search for construction information and road conditions in the vicinity of Melbourne and make travel options and plans that are more suitable for them based on the information they have.</p>
           </div>
         </div>
@@ -125,7 +114,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-            <h2>Our Services</h2>
+            <h2>What We Offer</h2>
           </div>
         </div>
         <!-- END row -->
@@ -197,84 +186,6 @@
         </div>
       </div>
     </section>
-<!--
-    <section class="probootstrap-section probootstrap-bg-white ">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 section-heading text-center probootstrap-animate">
-            <h2>Portfolio</h2>
-          </div>
-        </div>
-      </div>
-      <div class="owl-carousel owl-work probootstrap-animate">
-        <div class="item">
-          <a href="portfolio-single.html">
-            <img src="{% static 'img/work_1.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
-          </a>
-        </div>
-        <div class="item">
-          <a href="portfolio-single.html">
-            <img src="{% static 'img/work_2.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
-          </a>
-        </div>
-        <div class="item">
-          <a href="portfolio-single.html">
-            <img src="{% static 'img/work_3.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
-          </a>
-        </div>
-        <div class="item">
-          <a href="portfolio-single.html">
-            <img src="{% static 'img/work_4.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
-          </a>
-        </div>  
-        <div class="item">
-          <a href="portfolio-single.html">
-            <img src="{% static 'img/work_5.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
-          </a>
-        </div>
-        <div class="item">
-          <a href="portfolio-single.html">
-            <img src="{% static 'img/work_6.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
-          </a>
-        </div>
-        <div class="item">
-          <a href="portfolio-single.html">
-            <img src="{% static 'img/work_7.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
-          </a>
-        </div>
-      </div>
-    </section> -->     
-    
-    <section class="probootstrap-section proboostrap-clients probootstrap-bg-white probootstrap-zindex-above-showcase">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-            <h2>Our Data Source</h2>
-            <p class="lead">All data in our website comes from open data source</p>
-          </div>
-        </div>
-        <!-- END row -->
-        <div class="row">
-            
-          <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-            <img src="{% static 'img/vicroad.jpg' %}" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-            <img src="{% static 'img/melbourne_data.jpg' %}" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
-          </div>
-          <div class="clearfix visible-sm-block visible-xs-block"></div>
-          <!--<div class="col-md-3 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-            <img src="{% static 'img/vicroad.jpg' %}" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
-          </div>-->
-          <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-            <img src="{% static 'img/ptv.png' %}" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
-          </div>         
-          
-        </div>
-      </div>
-    </section>
-
 
     <section class="probootstrap-section">
       <div class="container">
@@ -291,7 +202,7 @@
               <div class="text">
                 <h3>Real-time construction information</h3>
                 <p>Our data comes from Vicroad through API and it will be updated hourly to keep accuracy</p>
-              </div>  
+              </div>
             </div>
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-presentation"></i></div>
@@ -314,7 +225,7 @@
               <div class="text">
                 <h3>The collection of information for the disability</h3>
                 <p>Clients can get all information about travelling on our website</p>
-              </div>  
+              </div>
             </div>
 
             <div class="service left-icon probootstrap-animate">
@@ -324,7 +235,7 @@
                 <p>Our system can provide real-time the car parking situations for the disability</p>
               </div>
             </div>
-            
+
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-browser2"></i></div>
               <div class="text">
@@ -338,55 +249,37 @@
         <!-- END row -->
       </div>
     </section>
-      <!--
-    <section class="probootstrap-section probootstrap-border-top probootstrap-bg-white">
+
+    <section class="probootstrap-section proboostrap-clients probootstrap-bg-white probootstrap-zindex-above-showcase">
       <div class="container">
+
         <div class="row">
           <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-            <h2>Testimonial</h2>
+            <h2>Our Data Source</h2>
+            <p class="lead">All data in our website comes from open data source</p>
           </div>
         </div>
         <!-- END row -->
-      <!--
         <div class="row">
-          <div class="col-md-12 probootstrap-animate">
-            <div class="owl-carousel owl-carousel-testimony owl-carousel-fullwidth">
-              <div class="item">
 
-                <div class="probootstrap-testimony-wrap text-center">
-                  <figure>
-                    <img src="{% static 'img/person_1.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
-                  </figure>
-                  <blockquote class="quote">&ldquo;Design must be functional and functionality must be translated into visual aesthetics, without any reliance on gimmicks that have to be explained.&rdquo; <cite class="author">&mdash; Ferdinand A. Porsche <br> <span>Design Lead at AirBNB</span></cite></blockquote>
-                </div>
-
-              </div>
-              <div class="item">
-                <div class="probootstrap-testimony-wrap text-center">
-                  <figure>
-                    <img src="{% static 'img/person_2.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
-                  </figure>
-                  <blockquote class="quote">&ldquo;Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.&rdquo; <cite class="author">&mdash; Steve Jobs <br> <span>Co-Founder Square</span></cite></blockquote>
-                </div>
-              </div>
-              <div class="item">
-                <div class="probootstrap-testimony-wrap text-center">
-                  <figure>
-                    <img src="{% static 'img/person_3.jpg' %}" alt="Free Bootstrap Template by uicookies.com">
-                  </figure>
-                  <blockquote class="quote">&ldquo;I think design would be better if designers were much more skeptical about its applications. If you believe in the potency of your craft, where you choose to dole it out is not something to take lightly.&rdquo; <cite class="author">&mdash; Frank Chimero <br> <span>Creative Director at Twitter</span></cite></blockquote>
-                </div>
-              </div>
-              
-            </div>
+          <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
+            <img src="{% static 'img/vicroad.jpg' %}" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
           </div>
+          <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
+            <img src="{% static 'img/melbourne_data.jpg' %}" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+          </div>
+          <div class="clearfix visible-sm-block visible-xs-block"></div>
+          <!--<div class="col-md-3 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
+            <img src="{% static 'img/vicroad.jpg' %}" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+          </div>-->
+          <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
+            <img src="{% static 'img/ptv.png' %}" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+          </div>
+
         </div>
-        <!-- END row -->
-      <!--
       </div>
     </section>
--->    
- 
+
     <footer class="probootstrap-footer">
       <div class="container">
         <div class="row">
@@ -410,7 +303,7 @@
         </div>
       </div>
     </footer>
-    
+
 
     <script src="{% static 'js/scripts.min.js' %}"></script>
     <script src="{% static 'js/custom.min.js' %}"></script>

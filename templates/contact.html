@@ -31,34 +31,26 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html" title="uiCookies:FineOak">FineOak</a>
+          <a class="navbar-brand" href="{% url 'index' %}" title="uiCookies:FineOak">Fair Journey</a>
         </div>
 
         <div id="navbar-collapse" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'service' %}">Our Services</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <!--<li><a href="gallery.html">Gallery</a></li>
-            <li class="dropdown">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
+            <li><a href="{% url 'index' %}">HOME</a></li>
+           <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">OUR SERVICES</a>
               <ul class="dropdown-menu">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="portfolio-single.html">Portfolio Single</a></li>
-                <li class="dropdown-submenu dropdown">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>Sub Menu</span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                  </ul>
-                </li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="{% url 'map' %}">Road construction information</a></li>
+                <li><a href="{% url 'map' %}">Plan your alternative route</a></li>
+                <li><a href="{% url 'map' %}">Show pedestrian Volume</a></li>
+                <li><a href="{% url 'map' %}">Nearest accessible public toilets</a></li>
+                <li><a href="{% url 'map' %}">Walking Function</a></li>
+                <li><a href="#">Coming Soon</a></li>
               </ul>
-            </li>-->
-            <li class="active"><a href="{% url 'contact' %}">Contact</a></li>
+            </li>
+              <li><a href="{% url 'project' %}">EVENTS</a></li>
+              <li><a href="{% url 'contact' %}">PEDESTRIAN SAFETY</a></li>
+              <li><a href="{% url 'about' %}">ABOUT US</a></li>
           </ul>
         </div>
       </div>
@@ -66,12 +58,12 @@
 
     <section class="flexslider">
       <ul class="slides">
-        <li style="background-image: url('{% static 'img/slider_1.jpg' %}')" class="overlay">
+        <li style="background-image: url('{% static 'img/slider_9.jpg' %}')" class="overlay">
           <div class="container">
             <div class="row">
               <div class="col-md-8 col-md-offset-2">
                 <div class="probootstrap-slider-text text-center">
-                  <h1 class="probootstrap-heading">Contact Us</h1>
+                  <h1 class="probootstrap-heading">Pedestrian Safety</h1>
                 </div>
               </div>
             </div>
@@ -117,27 +109,27 @@
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-lightbulb"></i></div>
               <div class="text">
-                <h3>The collection of information for the disablity</h3>
+                <h3>The collection of information for the disability</h3>
                 <p>Clients can get all information about travelling on our website</p>
               </div>
             </div>
-            <!--
+
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-magnifying-glass2"></i></div>
               <div class="text">
-                <h3>Asperiores Maxime Modi</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                <h3>The disability Parking</h3>
+                <p>Our system can provide real-time the car parking situations for the disability</p>
               </div>
             </div>
 
             <div class="service left-icon probootstrap-animate">
               <div class="icon"><i class="icon-browser2"></i></div>
               <div class="text">
-                <h3>Libero Maxime Molestiae</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                <h3>The services for the disability</h3>
+                <p>Public facilities for disabled persons marked with reachable range</p>
               </div>
             </div>
-            -->
+
           </div>
         </div>
         <!-- END row -->
@@ -147,7 +139,8 @@
     <footer class="probootstrap-footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 text-center">
+          <!--
+            <div class="col-md-12 text-center">
               <ul class="probootstrap-footer-social">
                 <li><a href="#"><i class="icon-twitter"></i></a></li>
                 <li><a href="#"><i class="icon-facebook"></i></a></li>
@@ -158,6 +151,7 @@
               </ul>
           </div>
         </div>
+        -->
         <!-- END row -->
         <div class="row">
           <div class="col-md-12 copyright text-center">
