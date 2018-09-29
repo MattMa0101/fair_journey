@@ -435,7 +435,7 @@
                 document.location.reload(true);
             });
 
-             map.on('click', 'toilet', function (e) {
+            /* map.on('click', 'toilet', function (e) {
                 var coordinates = e.features[0].geometry.coordinates.slice();
                 var description = e.features[0].properties.description;
 
@@ -449,7 +449,7 @@
                 destination = coordinates;
                 if(start_point != null && destination != null){
                     getRouteInfo(start_point, destination);}
-            });
+            });*/
             var popup = new mapboxgl.Popup({
                     closeButton: false,
                     closeOnClick: false
@@ -619,9 +619,9 @@
              });
 
             var route_list = ["route1","route2","route3","route4","route5"];
-            var color_list = ["#63aebb","#eb4706", "#bf280c","#69bf22","#BF9C14"]
+            var color_list = ["#00abbb","#7e7e80", "#bf280c","#69bf22","#BF9C14"]
 
-            for (i = 0; i<5; i++){
+            for (i = 0; i<2; i++){
                 map.addSource(route_list[i], {
                     type: 'geojson',
                     data: {
@@ -694,7 +694,7 @@
 
 
             function getRouteInfo (start_point, destination) {
-                 var route_list = ["route1","route2","route3","route4","route5"];
+                 var route_list = ["route1","route2"];
                  var startCoord = start_point.toString();
                  var endCoord = destination.toString();
 
@@ -718,29 +718,33 @@
                          console.log(data);
                          var route_id = 0;
                          document.getElementById("instructions").innerHTML = "";
-                         data.routes.forEach(function (line) {
-                             var route_list = ["route1","route2","route3","route4","route5"];
-                             var route = line.geometry;
-                             routines = line.geometry;
-                             var geoJSON = {
-                                 "type": "Feature",
-                                 "properties": {
-                                     "stroke": "#63aebb",
-                                     "stroke-width": "5"
-                                 }
-                             };
+                         line = data.routes[0]
+                         var route_list = ["route1","route2","route3","route4","route5"];
+                         var route = line.geometry;
+                         routines = line.geometry;
+                         var geoJSON = {
+                             "type": "Feature",
+                             "properties": {
+                                 "stroke": "#63aebb",
+                                 "stroke-width": "5"
+                             }
+                         };
 
-                             console.log(route_list[route_id]);
-                             geoJSON.geometry = route;
-                             map.getSource(route_list[route_id]).setData(geoJSON)
-                             var instructions = document.getElementById('instructions');
-                             var distance=line.distance;
-                             instructions.insertAdjacentHTML('beforeend', '<p>' + 'Route ' + route_id +': '+ distance+'m '+ Math.round(distance/100)+'min'+ '</p>');
-
-                             route_id ++;
-                             console.log(route_id)
+                         console.log(route_list[route_id]);
+                         geoJSON.geometry = route;
+                         map.getSource(route_list[route_id]).setData(geoJSON);
+                         var instructions = document.getElementById('instructions');
+                         var distance=line.distance;
+                         var steps = data.routes[0].steps;
+                         steps.forEach(function(step) {
+                             instructions.insertAdjacentHTML('beforeend', '<p>' + step.maneuver.instruction + '</p>');
                          });
+                         //instructions.insertAdjacentHTML('beforeend', '<p>' + 'Route ' + route_id +': '+ distance+'m '+ Math.round(distance/100)+'min'+ '</p>');
+                         route_id ++;
+                         console.log(route_id)
+
                          var center_p = [(start_point[0]+destination[0])/2,(start_point[1]+destination[1])/2]
+
                          map.flyTo({
                              center: center_p,
                              zoom: 14
@@ -792,19 +796,10 @@
 
             var point_list;
 
-           /** function updateRoutine(start_point, destination, midpoint) {
+           function updateRoutine(start_point, destination, midpoint) {
                 var shortest = 10000000;
-                var short_routine;
-                route_list.forEach(function (e) {
-                    if (map.getSource(map.getLayer(e).source)._data.geometry != undefined){
-                        var line = map.getSource(map.getLayer(e).source)._data.geometry;
-                        console.log(line);
-                        if(turf.pointToLineDistance(midpoint, line, {units: 'miles'}) < shortest) {
-                            shortest = turf.pointToLineDistance(midpoint, line, {units: 'miles'});
-                            short_routine = e;
-                        }
-                    }
-                });
+                var short_routine =route_list[1];
+
                 console.log(short_routine);
                 var endCoord = destination.toString();
                 console.log(endCoord.length);
@@ -831,10 +826,18 @@
 
                              geoJSON.geometry = route;
                              map.getSource(short_routine).setData(geoJSON)
+                         var instructions = document.getElementById('instructions');
+                         //var distance=line.distance;
+                         var steps = data.routes[0].legs[0].steps;
+                         console.log(steps)
+                         steps.forEach(function(step) {
+                             instructions.insertAdjacentHTML('beforeend', '<p>' + step.maneuver.instruction + '</p>');
+                         });
                      }
                  });
             }
             })
+       /**
           function getVolume() {
                     L.mapbox.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejkyYm9qbjAwdm8yd3RlaXNtZmN3a3gifQ.Uc9LFNtZpBHYc00cU-tQUA';
                     var map1 = L.mapbox.map('map', 'duncangraham.b134a19e',{
@@ -848,7 +851,7 @@
                     map1.fitBounds(map1.featureLayer.setGeoJSON(turf.linestring(routines)).getBounds(),{
                     paddingTopLeft:[150,50],
                     paddingBottomRight:[150,50]**/
-        })
+
 
 </script>
 </body>

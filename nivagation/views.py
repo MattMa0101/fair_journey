@@ -23,7 +23,7 @@ def index(request):
 @login_required(login_url='/login/')
 # return map page
 def map(request):
-    html = TemplateResponse(request, 'mobile_map.html')
+    html = TemplateResponse(request, 'new_map.html')
     return HttpResponse(html.render())
 
 @login_required(login_url='/login/')
