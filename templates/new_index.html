@@ -28,8 +28,9 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="js/modernizr.custom.js"></script>
 
-    <!--
+
     <link href="https://fonts.googleapis.com/css?family=Bellefair|Open+Sans" rel="stylesheet">
+    <!--
     <link rel="stylesheet" href="/static/css/styles-merged.css">
     <link rel="stylesheet" href="/static/css/style.min.css">
     -->
@@ -65,7 +66,36 @@
     </div>
     <!-- /page loader -->
 
-    <!-- Header -->
+	<!-- Section: intro -->
+    <!--
+    <section id="intro" class="home-video text-light">
+		<div class="home-video-wrapper">
+
+		<div class="homevideo-container">
+           <div id="P1" class="bg-player" style="display:block; margin: auto; background: rgba(0,0,0,0.5)" data-property="{videoURL:'http://youtu.be/mroiVdC7H10',containment:'.homevideo-container', quality: 'hd720', showControls: false, autoPlay:true, mute:true, startAt:0, opacity:1}"></div>
+		</div>
+		<div class="overlay">
+			<div class="text-center video-caption">
+				<div class="wow bounceInDown" data-wow-offset="0" data-wow-delay="0.8s">
+					<h1 class="big-heading font-light"><span id="js-rotating">We are Fair Journey, Awesome Bootstrap theme, Get better appearance, Craft from pixel </span></h1>
+				</div>
+				<div class="wow bounceInUp" data-wow-offset="0" data-wow-delay="1s">
+					<div class="margintop-30">
+						<a href="#about" class="btn btn-skin" id="btn-scroll">Start here</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+    </section>
+    -->
+	<!-- /Section: intro -->
+
+
+	<!-- Header -->
+
+
+
     <div id="intro">
     <div class="intro-body">
         <div class="container">
@@ -79,6 +109,7 @@
     </div>
     </div>
     <!-- Header -->
+
 
 
     <!-- Navigation -->
@@ -109,8 +140,6 @@
                                                                   <li class="active"><a href="#intro">Home</a></li>
                                                                   <li><a href="#about">About Us</a></li>
 																  <li><a href="#service">Services</a></li>
-                                                                  <li><a herf="'#planner">Journey Planner</a></li>
-                                                                 <!-- <li><a href="#works">Journey Planner</a></li> -->
                                                                   <li><a href="#weather">Weather</a></li>
                                                                   <li><a herf="#safety">Pedestrian Safety</a></li>
                                                                   <li><a herf="#event">Events</a></li>
@@ -224,9 +253,9 @@
 						<span class="pe-7s-map-marker pe-5x"></span>
 					</div>
 					<div class="service-desc">
-						<h5>Wheelchair Accessible Toilet</h5>
+						<h5>Accessible Toilet & Elevators</h5>
 						<p>
-						Fair Journey will guide customers to the wheelchair accessible toilet where they can find the nearest from their current location in Melbourne CBD for their convenience.
+						Fair Journey will guide customers from their current locations to the nearest wheelchair accessible toilet in Mebourne CBD or railway station with elevator for convenience.
 						</p>
 						<a href="#" class="btn btn-skin">Learn more</a>
 					</div>
@@ -237,13 +266,13 @@
 				<div class="wow fadeInRight" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<span class="pe-7s-info pe-5x"></span>
+						<span class="pe-7s-map pe-5x"></span>
 					</div>
 					<div class="service-desc">
-						<h5>Railway Station with Elevator</h5>
+						<h5>Journey Planner</h5>
 						<p>
-						Fair Journey guides customers from their current location to the nearest railway station with elevator for convenience.
-						</p> <br /> <br />
+						Customers can plan a trip to Melbourne CBD via this map. They can set the route to the destination or a new alternate route from the origin or current location. They can also download their searching information in PDF form.
+						</p>
 						<a href="#" class="btn btn-skin">Learn more</a>
 					</div>
                 </div>
@@ -299,43 +328,8 @@
             </div>
 	</section>
 
-    <!-- Section: planner -->
-    <section id="planner" class="home-section color-dark text-center bg-white">
-		<div class="container marginbot-50">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
-					<div class="section-heading text-center">
-					<h2 class="h-bold">Journey Planner</h2>
-					<div class="divider-header"></div>
-					<p>Customers can plan a trip to Melbourne CBD via this map provided by Fair Journey. They can set the route to the destination or a new alternate route from the origin or current loaction. They can also find their way to the train station with elevators or wheelchair accessible toilets close to your location or destination.</p>
-					</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</section>
-	<!-- /Section: planner -->
-
-    <!-- google map -->
-	<div id="map-btn1-div">
-		<a id="map-btn1" class="gmap-btn close-map-button btn-show" href="#map">
-		Click here to open the map
-		</a>
-	</div>
-	<a id="map-btn2" class="btn btn-skin btn-lg btn-noradius gmap-btn close-map-button btn-hide" href="#map" title="Close google map" data-toggle="tooltip" data-placement="top">
-	795 Folsom Ave, Suite 600 San Francisco, CA 94107
-	</a>
-
-    <!-- google map -->
-	<section id="map" class="close-map">
-		<div id="google-map"></div>
-	</section>
-	<!-- /google map -->
-
     <!-- Section: weather -->
-    <section id="weather" class="home-section color-light text-center bg-primary">
+    <section id="weather" class="home-section color-dark text-center bg-white">
         <div class=""container marginbot-50">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -354,7 +348,7 @@
     <!-- /Section: weather -->
 
 	<!-- Section: safety -->
-    <section id="safety" class="home-section color-dark text-center bg-white">
+    <section id="safety" class="home-section color-light text-center bg-success">
 		<div class="container marginbot-50">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
@@ -392,31 +386,6 @@
 	</section>
 	<!-- /Section: safety -->
 
-	<!-- Section: parallax 3 -->
-	<section id="parallax3" class="home-section parallax text-light text-center" data-stellar-background-ratio="0.5">
-           <div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="testimonialslide clearfix flexslider">
-							<ul class="slides">
-								<li><blockquote>
-								ei porro deleniti similique, per no consetetur necessitatibus. Ut sed augue docendi alienum, ex oblique scaevola inciderint pri, unum movet cu cum. Et cum impedit epicuri
-									</blockquote>
-									<h4>Daniel Dan <span>&#8213; MA System</span></h4>
-								</li>
-								<li><blockquote>
-								Usu ei porro deleniti similique, per no consetetur necessitatibus. Ut sed augue docendi alienum, ex oblique scaevola inciderint pri, unum movet cu cum. Et cum impedit epicuri
-									</blockquote>
-									<h4>Mark Wellbeck <span>&#8213; AC Software </span></h4>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-            </div>
-	</section>
-
-
 	<!-- Section: event -->
     <section id="event" class="home-section nopadd-bot color-dark bg-white text-center">
 		<div class="container marginbot-50">
@@ -452,10 +421,6 @@
                 </div>
             </div>
 		</div>
-
-
-
-		</div>
 	</section>
 	<!-- /Section: event -->
 
@@ -486,21 +451,20 @@
                             </div>
                             </div>
                          <!-- END row -->
-                        <div class="row">
-
-                        <div class="col-md-4" align="center">
-                        <img src="/static/img/vicroad.jpg">
-                        </div>
+                            <div class="row">
 
                             <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-                            <img src="/static/img/vicroad.jpg"> <class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-                            <img src="/static/img/melbourne_data.jpg" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
-                        </div>
-                        <div class="clearfix visible-sm-block visible-xs-block"></div>
+                                <img src="/static/img/vicroad.jpg" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+                            </div>
                             <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-                            <img src="/static/img/ptv.png" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+                                <img src="/static/img/melbourne_data.jpg" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+                            </div>
+                            <div class="clearfix visible-sm-block visible-xs-block"></div>
+
+                            <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
+                                <img src="/static/img/ptv.png" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+                            </div>
+
                             </div>
                         </div>
 
