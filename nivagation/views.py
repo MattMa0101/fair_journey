@@ -68,6 +68,12 @@ def new_slide(request):
     html = TemplateResponse(request, 'small_map.html')
     return HttpResponse(html.render())
 
+@login_required(login_url='/login/')
+def d3_map(request):
+    html = TemplateResponse(request, '3d_map.html')
+    return HttpResponse(html.render())
+
+
 #create a roadviewset class to process serializer road constuction information and pass it through ajax
 class RoadViewSet(viewsets.ModelViewSet):
     queryset = road_construction.objects.all()
