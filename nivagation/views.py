@@ -65,8 +65,9 @@ def new_index(request):
 @login_required(login_url='/login/')
 # return about page
 def new_slide(request):
-    html = TemplateResponse(request, 'new_slide.html')
+    html = TemplateResponse(request, 'small_map.html')
     return HttpResponse(html.render())
+
 #create a roadviewset class to process serializer road constuction information and pass it through ajax
 class RoadViewSet(viewsets.ModelViewSet):
     queryset = road_construction.objects.all()

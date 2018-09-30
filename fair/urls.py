@@ -35,7 +35,7 @@ urlpatterns = [
     path('service/', service, name='service'),
     path('about/', about, name='about'),
     path('new_index/', new_index, name='new_index'),
-    path('new_slide/', project, name='new_slide'),
+    path('new_slide/', new_slide, name='new_slide'),
     path('contact/', new_slide, name='contact'),
     path('project/', project, name='project'),
     url(r'^api/', include(router.urls)),

@@ -28,7 +28,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
     <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         html, body {
             margin: 0;
@@ -37,8 +37,8 @@
         }
 
         .navbar-default {
-            background-color: #404040;
-            border-color: #404040;
+            background-color: #808080;
+            border-color: #808080;
         }
 
         #map { position:absolute; top:88px; bottom:0; width:100%; left: 0px; }
@@ -54,12 +54,12 @@
             top: 0;
             bottom: 0;
             padding: 1px;
-            background-color: #404040;
+            background-color: #fbfff6;
             overflow-y: scroll;
             font-family: Verdana;
             font-size: 11px;
             font-weight:500;
-            color:white;
+            color:black;
             opacity: 0.8;
         }
 
@@ -69,12 +69,12 @@
             top: 0;
             bottom: 0;
             padding: 1px;
-            background-color: #404040;
+            background-color: #fbfff6;
             overflow-y: scroll;
             font-family: Verdana;
             font-size: 11px;
             font-weight:500;
-            color:white;
+            color:black;
             opacity: 0.8;
         }
 
@@ -84,23 +84,23 @@
             top:90px;
             position: absolute;
             left: 300px;
-            background-color: #404040;
-            color:#ffffff;
+            background-color: #fbfff6;
+            color:black;
     }
         ul.pin-top {
             border-radius: 3px;
             opacity: 1;
             font-size:11px;
-            top:90px;
+            top:88px;
             left:0px;
-            background-color: #404040;
-            color: white;
+            background-color: #fbfff6;
+            color: black;
             opacity:1;
         }
 
         ul.pin-top li {
-            background-color: #404040;
-            color: white;
+            background-color: #fbfff6;
+            color: black;
             opacity: 1;
         }
 
@@ -111,23 +111,23 @@
 
         li.fill-white {
             padding: .5em 1em 1em 1em;
-            background-color: #404040;
-            color:white;
+            background-color: #fbfff6;
+            color:black;
             opacity: 0.9;
         }
 
         li.content {
             display: none;
-            background-color: #404040;
-            color:white;
+            background-color: #fbfff6;
+            color:black;
             opacity: 1;
 
         }
 
         li.fill-white .content {
             display: block;
-            background-color: #404040;
-            color:white;
+            background-color: #fbfff6;
+            color:black;
             opacity: 1;
         }
 
@@ -146,7 +146,17 @@
 
         .fill-blue {
         background: #47bdbd;
-        font-size: 11px;
+        font-size: 10px;
+        width:120px
+        }
+
+        .dt-button{
+            background: #47bdbd;
+            color:white;
+            margin-left:30%;
+            margin-right:50%;
+            width:120px;
+            text-align: center;
         }
 
         .fr {
@@ -161,7 +171,7 @@
         }
 
         #title-block {
-            height: 60px;
+            height: 35px;
         }
 
         #tooltip {
@@ -205,6 +215,14 @@
     <script src="{% static "assets/touchswipe/jquery.touch-swipe.min.js" %}"></script>
     <script src="{% static "assets/theme/js/script.js" %}"></script>
     <script src="{% static "assets/slidervideo/script.js" %}"></script>
+    <script src = 'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
+    <script src = 'https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js'></script>
+    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js'></script>
+
+    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js'></script>
+    <script src = 'https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js'></script>
+
+
     <div>
         <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
           <div class="container">
@@ -255,7 +273,7 @@
     <button id="toggle">&#9776</button>
     <!--<ul class='pin-top pad1 quiet space-top2 space-left2 col3'>-->
 
-    <ul id="sidebar" class='pin-top quiet col3'>
+    <ul id="sidebar" class='pin-top col3'>
         <li id='dst-location' class='fill-white keyline-bottom'>
             <!--<span class='label'>Choose starting location</span>-->
             <div class='content'>
@@ -268,13 +286,8 @@
             </div>
         </li>
 
-        <li id='destination' class='fill-gray keyline-bottom'>
-            <span class='label'>Destination</span>
-            <div class='selection'></div>
-        </li>
-
         <li id='route-info' class='fill-gray keyline-bottom'>
-            <p><span class='label'><b>Selection:</b></span></p>
+            <p><span class='label'><b>Step::</b></span></p>
             <div id='instructions' class='content row3'>
             </div>
         </li>
@@ -286,16 +299,29 @@
     </li>-->
 
         <li id='title-block' class='fill-denim dark keyline-bottom'>
-            <div class='co16 margin1 button short fr fill-blue' id='hideproject'>Hide Project</div>
-            <div class='co16 margin1 button short fr fill-blue' id='hidetoilet'>Hide Toilet</div>
+            <div class='co16 margin1 button short fr fill-blue' id='hideproject'>Show Project</div>
+            <div class='co16 margin1 button short fr fill-blue' id='hidetoilet'>Show Toilet</div>
 
         </li>
 
          <li id='title-block' class='fill-denim dark keyline-bottom'>
             <div class='co14 margin1 button short fr fill-blue refresh'>Refresh</div>
-            <div class='co14 margin1 button short fr fill-blue' id='crowded'>Hide pedestrian</div>
+            <div class='co14 margin1 button short fr fill-blue' id='crowded'>Show pedestrian</div>
         </li>
+        <li>
+            <table id="example">
+                <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+
+            </table>
+        </li>
+
     </ul>
+
+
 
     <script>
        var button = document.getElementById('toggle'),
@@ -318,11 +344,67 @@
           style: 'mapbox://styles/mapbox/streets-v9', //hosted style id
           center: [144.9631,-37.8136], // starting position
           zoom: 14.5, // starting zoom
-          minZoom: 9 // keep it local
+          minZoom: 9, // keep it local
+          preserveDrawingBuffer: true
         });
+
+        $('#example').DataTable( {
+                    dom: 'Bfrtip',
+                    buttons: [
+                        {
+                            extend: 'pdfHtml5',
+                            customize: function ( doc ) {
+                                var img = new Image();
+                                var mapCanvas = map.getCanvas(document.querySelector('.mapboxgl-canvas'));
+                                img.src = mapCanvas.toDataURL();
+                                var steps = document.getElementsByTagName("p");
+                                var text_content = [];
+                                for (var i = 1;i < steps.length; i++){
+                                     text_content.push({"text":"Step " + i + ": "+ steps[i].innerHTML + "\n"});
+                                }
+                                console.log(text_content)
+                                doc.content.splice(1, 0,
+                                    {
+                                        margin: [0, 0, 0, 12],
+                                        alignment: 'middle',
+                                        width: 500,
+                                        image: img.src,
+
+                                    },
+                                );
+                                doc.content.splice(2, 0,
+                                    {
+                                        margin: [0, 0, 0, 12],
+                                        alignment: 'left',
+                                        width: 300,
+                                        text: [{ text: 'Thanks for using the fair journey website \n',bold:true,fontSize:15 },
+                                       { text: 'Please follow the steps.',italics:true,fontSize:12 }]
+
+                                    },
+                                );
+
+                                doc.content.splice(3, 0,
+                                    {
+                                        margin: [0, 0, 0, 12],
+                                        alignment: 'left',
+                                        width: 300,
+                                        text: text_content,
+
+                                    },
+                                );
+                            }
+                                }
+                            ]
+                        } );
+
+        $('#example').hide();
+            $('#example_paginate').hide();
+            $('#example_filter').hide();
+            $('#example_info').hide();
         var start_point,destination, routines;
 
         map.on('load', function () {
+
              map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/dc41a050/icons8-under-construction-50.png', function(error, image) {
                     if (error) throw error;
                     map.addImage('roadwork', image);
@@ -341,6 +423,8 @@
                                 "icon-allow-overlap": true
                             }
                     });
+
+            map.setLayoutProperty('places', 'visibility', 'none');
              });
 
             map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/d7527193/if_toilet_103227.png', function(error, image) {
@@ -348,7 +432,7 @@
                     map.addImage('toilet_image', image);
                     map.addSource('toilet',{
                         type: 'geojson',
-                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/b24194b1/toilet.geojson'
+                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/ff1cd87d/elevator.geojson'
                     })
 
                     map.addLayer({
@@ -361,6 +445,8 @@
                                 "icon-allow-overlap": true
                             }
                     });
+
+            map.setLayoutProperty('toilet', 'visibility', 'none');
             });
 
             map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/f8450fa1/icons8-crowd-filled-50.png', function(error, image) {
@@ -381,7 +467,10 @@
                                 "icon-allow-overlap": true
                             }
                     });
+
+            map.setLayoutProperty('crowded', 'visibility', 'none');
             });
+
 
             map.on('click', 'places', function (e) {
                 var coordinates = e.features[0].geometry.coordinates.slice();
@@ -404,6 +493,7 @@
                 console.log(document.getElementById('hideproject').innerHTML)
                 if(document.getElementById('hideproject').innerHTML == "Hide Project"){
                     map.setLayoutProperty('places', 'visibility', 'none');
+                    map.setLayoutProperty('crowded', 'visibility', 'none');
                     document.getElementById('hideproject').innerHTML = "Show Project";
                 }
                 else {
