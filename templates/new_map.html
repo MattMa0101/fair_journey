@@ -37,7 +37,7 @@
         }
 
         .navbar-default {
-            background-color: #808080;
+            background-color: #222222;
             border-color: #808080;
         }
 
@@ -54,7 +54,7 @@
             top: 0;
             bottom: 0;
             padding: 1px;
-            background-color: #fbfff6;
+            background-color: #f9f9f9;
             overflow-y: scroll;
             font-family: Verdana;
             font-size: 11px;
@@ -69,7 +69,7 @@
             top: 0;
             bottom: 0;
             padding: 1px;
-            background-color: #fbfff6;
+            background-color: #f9f9f9;
             overflow-y: scroll;
             font-family: Verdana;
             font-size: 11px;
@@ -84,22 +84,22 @@
             top:90px;
             position: absolute;
             left: 300px;
-            background-color: #fbfff6;
+            background-color: #f9f9f9;
             color:black;
     }
         ul.pin-top {
             border-radius: 3px;
             opacity: 1;
             font-size:11px;
-            top:88px;
+            top:92px;
             left:0px;
-            background-color: #fbfff6;
+            background-color: #f9f9f9;
             color: black;
             opacity:1;
         }
 
         ul.pin-top li {
-            background-color: #fbfff6;
+            background-color: #f9f9f9;
             color: black;
             opacity: 1;
         }
@@ -111,14 +111,14 @@
 
         li.fill-white {
             padding: .5em 1em 1em 1em;
-            background-color: #fbfff6;
+            background-color: #f9f9f9;
             color:black;
             opacity: 0.9;
         }
 
         li.content {
             display: none;
-            background-color: #fbfff6;
+            background-color: #f9f9f9;
             color:black;
             opacity: 1;
 
@@ -126,7 +126,7 @@
 
         li.fill-white .content {
             display: block;
-            background-color: #fbfff6;
+            background-color: #f9f9f9;
             color:black;
             opacity: 1;
         }
@@ -145,13 +145,13 @@
         }
 
         .fill-blue {
-        background: #47bdbd;
+        background: #FE7A44;
         font-size: 10px;
         width:120px
         }
 
         .dt-button{
-            background: #47bdbd;
+            background: #FE7A44;
             color:white;
             margin-left:30%;
             margin-right:50%;
@@ -164,7 +164,7 @@
         }
 
         .elevGraph {
-            fill: deepskyblue;
+            fill: #FE7A44;
             stroke: none;
             opacity: 0.4;
             stroke-width: 4px;
@@ -188,7 +188,7 @@
         }
 
         .marker-hover {
-            background: steelblue;
+            background: #FE7A44;
             border-radius: 50%;
             border: 2px solid white;
             height: 20px;
@@ -238,8 +238,8 @@
 
         <div id="navbar-collapse" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li class="dropdown">
+            <li><a href="{% url 'new_index' %}">Home</a></li>
+            <!--<li class="dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle">Our Services</a>
               <ul class="dropdown-menu">
                 <li><a href="{% url 'map' %}">Road construction information</a></li>
@@ -248,7 +248,7 @@
                 <li><a href="{% url 'map' %}">Nearest accessible public toilets</a></li>
                 <li><a href="{% url 'map' %}">Walking Function</a></li>
                 <li><a href="#">Coming Soon</a></li>
-                <!--<li><a href="portfolio-single.html">Portfolio Single</a></li>
+                <li><a href="portfolio-single.html">Portfolio Single</a></li>
                 <li class="dropdown-submenu dropdown">
                   <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>Sub Menu</span></a>
                   <ul class="dropdown-menu">
@@ -258,12 +258,12 @@
                     <li><a href="#">Second Level Menu</a></li>
                   </ul>
                 </li>
-                <li><a href="services.html">Services</a></li>-->
+                <li><a href="services.html">Services</a></li>
               </ul>
             </li>
 
             <li><a href="{% url 'about' %}">About Us</a></li>
-            <li class="active"><a href="{% url 'contact' %}">Pedestrian Safety</a></li>
+            <li class="active"><a href="{% url 'contact' %}">Pedestrian Safety</a></li>-->
           </ul>
         </div>
       </div>
@@ -287,8 +287,8 @@
         </li>
 
         <li id='route-info' class='fill-gray keyline-bottom'>
-            <p><span class='label'><b>Step::</b></span></p>
-            <div id='instructions' class='content row3'>
+            <div><span class='label'><b>Step::</b></span></div>
+            <div id='instructions' class='content row6'>
             </div>
         </li>
 <!--
@@ -299,14 +299,14 @@
     </li>-->
 
         <li id='title-block' class='fill-denim dark keyline-bottom'>
-            <div class='co16 margin1 button short fr fill-blue' id='hideproject'>Show Project</div>
-            <div class='co16 margin1 button short fr fill-blue' id='hidetoilet'>Show Toilet</div>
+            <div class='co16 margin1 button short fr fill-blue' id='hideproject'>Show Constructions</div>
+            <div class='co16 margin1 button short fr fill-blue' id='hidetoilet'>Show Toilets</div>
 
         </li>
 
          <li id='title-block' class='fill-denim dark keyline-bottom'>
             <div class='co14 margin1 button short fr fill-blue refresh'>Refresh</div>
-            <div class='co14 margin1 button short fr fill-blue' id='crowded'>Show Elevator</div>
+            <div class='co14 margin1 button short fr fill-blue' id='crowded'>Show Elevators</div>
         </li>
         <li>
             <table id="example">
@@ -491,24 +491,24 @@
 
             $('#hideproject').on('click', function(){
                 console.log(document.getElementById('hideproject').innerHTML)
-                if(document.getElementById('hideproject').innerHTML == "Hide Project"){
+                if(document.getElementById('hideproject').innerHTML == "Hide Constructions"){
                     map.setLayoutProperty('places', 'visibility', 'none');
                     map.setLayoutProperty('crowded', 'visibility', 'none');
-                    document.getElementById('hideproject').innerHTML = "Show Project";
+                    document.getElementById('hideproject').innerHTML = "Show Constructions";
                 }
                 else {
                     map.setLayoutProperty('places', 'visibility', 'visible');
-                    document.getElementById('hideproject').innerHTML = "Hide Project";
+                    document.getElementById('hideproject').innerHTML = "Hide Constructions";
                 }
                 });
             $('#crowded').on('click', function(){
-                if(document.getElementById('crowded').innerHTML == "Hide Elevator"){
+                if(document.getElementById('crowded').innerHTML == "Hide Elevators"){
                     map.setLayoutProperty('crowded', 'visibility', 'none');
-                    document.getElementById('crowded').innerHTML = "Show Elevator";
+                    document.getElementById('crowded').innerHTML = "Show Elevators";
                 }
                 else {
                     map.setLayoutProperty('crowded', 'visibility', 'visible');
-                    document.getElementById('crowded').innerHTML = "Hide Elevator";
+                    document.getElementById('crowded').innerHTML = "Hide Elevators";
                 }
                 });
     // Change the cursor to a pointer when the mouse is over the places layer.
@@ -607,13 +607,13 @@
 
             $('#hidetoilet').on('click', function(){
                 console.log(document.getElementById('hidetoilet').innerHTML)
-                if(document.getElementById('hidetoilet').innerHTML == "Hide Toilet"){
+                if(document.getElementById('hidetoilet').innerHTML == "Hide Toilets"){
                     map.setLayoutProperty('toilet', 'visibility', 'none');
-                    document.getElementById('hidetoilet').innerHTML = "Show Toilet";
+                    document.getElementById('hidetoilet').innerHTML = "Show Toilets";
                 }
                 else {
                     map.setLayoutProperty('toilet', 'visibility', 'visible');
-                    document.getElementById('hidetoilet').innerHTML = "Hide Toilet";
+                    document.getElementById('hidetoilet').innerHTML = "Hide Toilets";
                 }
                 });
 
@@ -826,8 +826,10 @@
                          var instructions = document.getElementById('instructions');
                          var distance=line.distance;
                          var steps = data.routes[0].steps;
+                         var num =1;
                          steps.forEach(function(step) {
-                             instructions.insertAdjacentHTML('beforeend', '<p>' + step.maneuver.instruction + '</p>');
+                             instructions.insertAdjacentHTML('beforeend', '<p>Step'+ num + ": "+ step.maneuver.instruction + '</p>');
+                             num++;
                          });
                          //instructions.insertAdjacentHTML('beforeend', '<p>' + 'Route ' + route_id +': '+ distance+'m '+ Math.round(distance/100)+'min'+ '</p>');
                          route_id ++;
@@ -916,12 +918,15 @@
 
                              geoJSON.geometry = route;
                              map.getSource(short_routine).setData(geoJSON)
+                         document.getElementById("instructions").innerHTML = "";
                          var instructions = document.getElementById('instructions');
                          //var distance=line.distance;
                          var steps = data.routes[0].legs[0].steps;
                          console.log(steps)
+                         var num = 1;
                          steps.forEach(function(step) {
-                             instructions.insertAdjacentHTML('beforeend', '<p>' + step.maneuver.instruction + '</p>');
+                             instructions.insertAdjacentHTML('beforeend', '<p>Step'+ num + ": "+ step.maneuver.instruction + '</p>');
+                             num ++;
                          });
                      }
                  });

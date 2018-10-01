@@ -35,10 +35,11 @@ urlpatterns = [
     path('service/', service, name='service'),
     path('about/', about, name='about'),
     path('new_index/', new_index, name='new_index'),
-    path('new_slide/', new_slide, name='new_slide'),
-    path('contact/', new_slide, name='contact'),
+    path('small_map/', small_map, name='small_map'),
+    path('contact/', contact, name='contact'),
     path('d3_map/', d3_map, name='d3_map'),
     path('project/', project, name='project'),
+    path('surface/', surface, name='surface'),
     url(r'^api/', include(router.urls)),
     url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
 ]

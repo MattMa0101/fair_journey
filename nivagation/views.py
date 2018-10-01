@@ -17,7 +17,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/login/')
 def index(request):
-    html = TemplateResponse(request, 'index.html')
+    html = TemplateResponse(request, 'new_index.html')
     return HttpResponse(html.render())
 
 @login_required(login_url='/login/')
@@ -64,8 +64,14 @@ def new_index(request):
 
 @login_required(login_url='/login/')
 # return about page
-def new_slide(request):
+def small_map(request):
     html = TemplateResponse(request, 'small_map.html')
+    return HttpResponse(html.render())
+
+@login_required(login_url='/login/')
+# return about page
+def surface(request):
+    html = TemplateResponse(request, 'surface.html')
     return HttpResponse(html.render())
 
 @login_required(login_url='/login/')
