@@ -306,7 +306,7 @@
 
          <li id='title-block' class='fill-denim dark keyline-bottom'>
             <div class='co14 margin1 button short fr fill-blue refresh'>Refresh</div>
-            <div class='co14 margin1 button short fr fill-blue' id='crowded'>Show pedestrian</div>
+            <div class='co14 margin1 button short fr fill-blue' id='crowded'>Show Elevator</div>
         </li>
         <li>
             <table id="example">
@@ -427,12 +427,12 @@
             map.setLayoutProperty('places', 'visibility', 'none');
              });
 
-            map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/d7527193/if_toilet_103227.png', function(error, image) {
+            map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/7b0ee58f/459566545566619251.png', function(error, image) {
                     if (error) throw error;
                     map.addImage('toilet_image', image);
                     map.addSource('toilet',{
                         type: 'geojson',
-                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/ff1cd87d/elevator.geojson'
+                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/b7325927/toilet.geojson'
                     })
 
                     map.addLayer({
@@ -449,12 +449,12 @@
             map.setLayoutProperty('toilet', 'visibility', 'none');
             });
 
-            map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/f8450fa1/icons8-crowd-filled-50.png', function(error, image) {
+            map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/7b0ee58f/655423332772591980.png', function(error, image) {
                     if (error) throw error;
                     map.addImage('crowd', image);
                     map.addSource('crowd',{
                         type: 'geojson',
-                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/37ac70ab/volume.geojson'
+                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/b7325927/elevator.geojson'
                     })
 
                     map.addLayer({
@@ -463,7 +463,7 @@
                         "source": 'crowd',
                         "layout": {
                                 "icon-image": "crowd",
-                                "icon-size": 0.4,
+                                "icon-size": 0.05,
                                 "icon-allow-overlap": true
                             }
                     });
@@ -502,13 +502,13 @@
                 }
                 });
             $('#crowded').on('click', function(){
-                if(document.getElementById('crowded').innerHTML == "Hide pedestrian"){
+                if(document.getElementById('crowded').innerHTML == "Hide Elevator"){
                     map.setLayoutProperty('crowded', 'visibility', 'none');
-                    document.getElementById('crowded').innerHTML = "Show pedestrian";
+                    document.getElementById('crowded').innerHTML = "Show Elevator";
                 }
                 else {
                     map.setLayoutProperty('crowded', 'visibility', 'visible');
-                    document.getElementById('crowded').innerHTML = "Hide pedestrian";
+                    document.getElementById('crowded').innerHTML = "Hide Elevator";
                 }
                 });
     // Change the cursor to a pointer when the mouse is over the places layer.
