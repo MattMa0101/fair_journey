@@ -358,9 +358,12 @@
                                 var mapCanvas = map.getCanvas(document.querySelector('.mapboxgl-canvas'));
                                 img.src = mapCanvas.toDataURL();
                                 var steps = document.getElementsByTagName("p");
+                                console.log(document.getElementById("geocoder_1").getElementsByTagName('input')[0].value);
+                                var beginning = document.getElementById("geocoder_1").getElementsByTagName('input')[0].value,
+                                    ending = document.getElementById("geocoder_2").getElementsByTagName('input')[0].value;
                                 var text_content = [];
-                                for (var i = 1;i < steps.length; i++){
-                                     text_content.push({"text":"Step " + i + ": "+ steps[i].innerHTML + "\n"});
+                                for (var i = 0;i < steps.length; i++){
+                                     text_content.push({"text": steps[i].innerHTML + "\n"});
                                 }
                                 console.log(text_content)
                                 doc.content.splice(1, 0,
@@ -372,6 +375,7 @@
 
                                     },
                                 );
+
                                 doc.content.splice(2, 0,
                                     {
                                         margin: [0, 0, 0, 12],
@@ -384,6 +388,16 @@
                                 );
 
                                 doc.content.splice(3, 0,
+                                    {
+                                        margin: [0, 0, 0, 12],
+                                        alignment: 'left',
+                                        width: 300,
+                                        text: [{ text: "Start point: " + beginning + ' \n', italics:true,fontSize:10 },
+                                       { text: "Destination: " + ending + ' \n',italics:true,fontSize:10 }]
+
+                                    },
+                                );
+                                doc.content.splice(4, 0,
                                     {
                                         margin: [0, 0, 0, 12],
                                         alignment: 'left',
@@ -596,11 +610,6 @@
             });
 
             map.on('mouseleave', 'crowded', function() {
-                map.getCanvas().style.cursor = '';
-                popup.remove();
-            });
-
-            map.on('mouseleave', 'toilet', function() {
                 map.getCanvas().style.cursor = '';
                 popup.remove();
             });
@@ -825,8 +834,10 @@
                          map.getSource(route_list[route_id]).setData(geoJSON);
                          var instructions = document.getElementById('instructions');
                          var distance=line.distance;
+                         var duration=line.duration;
                          var steps = data.routes[0].steps;
                          var num =1;
+                         instructions.insertAdjacentHTML('beforeend', "<p>Duration: " + Math.round(duration/60) + " min   Distance: " + distance + " m</p>")
                          steps.forEach(function(step) {
                              instructions.insertAdjacentHTML('beforeend', '<p>Step'+ num + ": "+ step.maneuver.instruction + '</p>');
                              num++;
@@ -841,6 +852,23 @@
                              center: center_p,
                              zoom: 14
                          })
+
+                         map.on('mouseenter', 'route1', function(e) {
+                            // Change the cursor style as a UI indicator.
+                             map.getCanvas().style.cursor = 'pointer';
+
+
+                            // Populate the popup and set its coordinates
+                            // based on the feature found.
+                                  popup.setLngLat(e.lngLat)
+                                        .setHTML("<p><strong>Duration: </strong>" +  Math.round(duration/60) + "min</p><p><strong>Distance: </strong>" + distance + "m</p>" )
+                                        .addTo(map);
+                                });
+
+                                map.on('mouseleave', 'route1', function() {
+                                    map.getCanvas().style.cursor = '';
+                                    popup.remove();
+                                });
                          //console.log(getDistance(start_point,destination))
                      }
                  });
@@ -922,12 +950,31 @@
                          var instructions = document.getElementById('instructions');
                          //var distance=line.distance;
                          var steps = data.routes[0].legs[0].steps;
-                         console.log(steps)
+                         console.log(data.routes[0])
                          var num = 1;
+                         var duration = data.routes[0].duration;
+                         var distance = data.routes[0].distance;
+                         instructions.insertAdjacentHTML('beforeend', "<p>Duration: " + Math.round(duration/60) + " min   Distance: " + distance + " m</p>")
                          steps.forEach(function(step) {
                              instructions.insertAdjacentHTML('beforeend', '<p>Step'+ num + ": "+ step.maneuver.instruction + '</p>');
                              num ++;
                          });
+                         map.on('mouseenter', short_routine, function(e) {
+                            // Change the cursor style as a UI indicator.
+                             map.getCanvas().style.cursor = 'pointer';
+
+
+                            // Populate the popup and set its coordinates
+                            // based on the feature found.
+                                  popup.setLngLat(e.lngLat)
+                                        .setHTML("<p><strong>Duration: </strong>" +  Math.round(duration/60) + "min</p><p><strong>Distance: </strong>" + distance + "m</p>" )
+                                        .addTo(map);
+                                });
+
+                                map.on('mouseleave', 'route1', function() {
+                                    map.getCanvas().style.cursor = '';
+                                    popup.remove();
+                                });
                      }
                  });
             }
