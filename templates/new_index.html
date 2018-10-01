@@ -311,6 +311,8 @@
 					<div class="divider-header"></div>
 					<p>Fair Journey provides weather information for a better travel plan for our customers.</p>
 					</div>
+                        <iframe src="https://weatherfor.us/widget?location=Melbourne+central&unit=metric" scrolling="no" frameborder="0" allowtransparency="true" style="background: transparent; width: 720px; height: 250px; overflow: hidden;"></iframe>
+
 					</div>
 				</div>
             </div>
@@ -383,10 +385,9 @@
             <li>
               <ol class="type">
                 <li><a href="#" data-filter="*" class="active">All</a></li>
-                <li><a href="#" data-filter=".lorem">Jan-Mar</a></li>
-                <li><a href="#" data-filter=".sec">Apr-Jun</a></li>
-                <li><a href="#" data-filter=".thi">Jul-Sep</a></li>
-                  <li><a href="#" data-filter=".fou">Oct-Dec</a></li>
+                <li><a href="#" data-filter=".fir">Jan-Apr</a></li>
+                <li><a href="#" data-filter=".sec">May-Aug</a></li>
+                <li><a href="#" data-filter=".thi">Sep-Dec</a></li>
               </ol>
             </li>
           </ul>
@@ -394,20 +395,20 @@
         </div>
         <div class="row">
           <div class="portfolio-items">
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fir">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_01.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_01.png' %}" title="Janaury Event" rel="prettyPhoto">
                     <!--<a href="img/events/event_01.png" title="Project description" rel="prettyPhoto"> -->
                   <div class="hover-text">
                     <h4>January</h4>
                     <p>Jan-Mar</p>
                   </div>
-                  <img src="{% static 'img/events/event_01.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
+                  <img src="{% static 'img/events/event_01.png' %}"  class="img-responsive" alt="January Event"> </a> </div>
               </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fir">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_02.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_02.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>February</h4>
                     <p>Jan-Mar</p>
@@ -415,9 +416,9 @@
                   <img src="{% static 'img/events/event_02.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
               </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fir">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_03.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_03.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>March</h4>
                     <p>Jan-Mar</p>
@@ -425,9 +426,9 @@
                   <img src="{% static 'img/events/event_03.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
               </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 sec">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fir">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_04.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_04.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>April</h4>
                     <p>Apr-Jun</p>
@@ -437,7 +438,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 sec">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_05.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_05.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>May</h4>
                     <p>Apr-Jun</p>
@@ -447,7 +448,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 sec">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_06.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_06.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>June</h4>
                     <p>Apr-Jun</p>
@@ -455,9 +456,9 @@
                   <img src="{% static 'img/events/event_06.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
               </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 thi">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 sec">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_07.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_07.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>July</h4>
                     <p>Jul-Sep</p>
@@ -465,9 +466,9 @@
                   <img src="{% static 'img/events/event_07.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
               </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 thi">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 sec">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_08.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_08.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>August</h4>
                     <p>Jul-Sep</p>
@@ -477,7 +478,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 thi">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_09.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_09.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>September</h4>
                     <p>Jul-Sep</p>
@@ -485,9 +486,9 @@
                   <img src="{% static 'img/events/event_09.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
               </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fou">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 thi">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_10.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_10.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>October</h4>
                     <p>Oct-Dec</p>
@@ -495,9 +496,9 @@
                   <img src="{% static 'img/events/event_10.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
               </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fou">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 thi">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_11.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_11.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>November</h4>
                     <p>Oct-Dec</p>
@@ -505,9 +506,9 @@
                   <img src="{% static 'img/events/event_11.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
               </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fou">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 thi">
               <div class="portfolio-item">
-                <div class="hover-bg"> <img src="{% static 'img/events/event_12.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_12.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>December</h4>
                     <p>Oct-Dec</p>
@@ -617,7 +618,7 @@
 
     <!-- Javascripts
         ================================================== -->
-    <script type="text/javascript" src="Modus/js/main.js"></script>
+    <script type="text/javascript" src="{% static 'Modus/js/main.js' %}"></script>
     </body>
     </html>
 
