@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Valera bootstrap 3 one page template</title>
+    <title>Fair Journey</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css"  href="Modus/css/bootstrap.css">
@@ -77,7 +77,7 @@
             <div class="col-md-10 col-md-offset-1">
             <h1>We are <span class="brand-heading">Fair Journey</span></h1>
             <p class="intro-text">A full-service journey planner that loves what we do</p>
-            <a href="#about" class="btn btn-default page-scroll">Learn More</a> </div>
+            <a href="#about" class="btn btn-default page-scroll">START PLANNING</a> </div>
         </div>
         </div>
     </div>
@@ -192,11 +192,11 @@
 						<span class="pe-7s-tools pe-5x"></span>
 					</div>
 					<div class="service-desc">
-						<h5>Road Construction</h5>
+						<h5>Road Surface</h5>
 						<p>
-						Fair Journey can provide accurate and real-time road construction information for clients, which includes location, period and time.
-						</p> <br /> <br /> <br />
-						<a href="#" class="btn btn-skin">Learn more</a>
+						The road surface information in Melbourne CBD, which contains the surface material, initialized year and condition level for the travelling plan of the disability
+						</p> <br /> <br />
+						<a href="{% url 'surface' %}" class="btn btn-skin">Plan more</a>
 					</div>
                 </div>
 				</div>
@@ -212,7 +212,7 @@
 						<p>
 						Fair Journey offers a pedestrian volume of the Melbourne CBD for a better travel experience for our customers.
 						</p> <br /> <br /> <br />
-						<a href="#" class="btn btn-skin">Learn more</a>
+						<a href="{% url 'd3_map' %}" class="btn btn-skin">Plan more</a>
 					</div>
                 </div>
 				</div>
@@ -229,7 +229,7 @@
 						<p>
 						Fair Journey will guide customers from their current locations to the nearest wheelchair accessible toilet in Mebourne CBD or railway station with elevator for convenience.
 						</p>
-						<a href="#" class="btn btn-skin">Learn more</a>
+						<a href="{% url 'small_map' %}" class="btn btn-skin">Plan more</a>
 					</div>
                 </div>
 				</div>
@@ -245,7 +245,7 @@
 						<p>
 						Customers can plan a trip to Melbourne CBD via this map. They can set the route to the destination or a new alternate route from the origin or current location. They can also download their searching information in PDF form.
 						</p>
-						<a href="#" class="btn btn-skin">Learn more</a>
+						<a href="{% url 'map' %}" class="btn btn-skin">Plan more</a>
 					</div>
                 </div>
 				</div>
@@ -343,23 +343,83 @@
                 <div class="col-sm-12 col-md-12 col-lg-12" >
 					<div class="wow bounceInUp" data-wow-delay="0.4s">
                     <div id="owl-works" class="owl-carousel">
-                        <div class="item"><a href="{% static 'img/safety/safety_01.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_01@2x.png' %}"><img src="{% static 'img/safety/safety_01.png' %}" class="img-responsive" alt="img"></a></div>
-                        <div class="item"><a href="{% static 'img/safety/safety_02.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_02@2x.png' %}"><img src="{% static 'img/safety/safety_02.png' %}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{% static 'img/safety/safety_03.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_03@2x.png' %}"><img src="{% static 'img/safety/safety_03.png' %}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{% static 'img/safety/safety_04.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_04@2x.png' %}"><img src="{% static 'img/safety/safety_04.png' %}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{% static 'img/safety/safety_05.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_05@2x.png' %}"><img src="{% static 'img/safety/safety_05.png' %}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{% static 'img/safety/safety_06.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_06@2x.png' %}"><img src="{% static 'img/safety/safety_06.png' %}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{% static 'img/safety/safety_07.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_07@2x.png' %}"><img src="{% static 'img/safety/safety_07.png' %}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{% static 'img/safety/safety_08.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_08@2x.png' %}"><img src="{% static 'img/safety/safety_08.png' %}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{% static 'img/safety/safety_09.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_09@2x.png' %}"><img src="{% static 'img/safety/safety_09.png' %}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{% static 'img/safety/safety_10.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_10@2x.png' %}"><img src="{% static 'img/safety/safety_10.png' %}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{% static 'img/safety/safety_11.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_11@2x.png' %}"><img src="{% static 'img/safety/safety_11.png' %}" class="img-responsive " alt="img"></a></div>
+
+                        <div class="popup"><img src="{% static 'img/safety/safety_01.png' %}" class="img-responsive" alt="img"></div>
+                        <div class="popup"><img src="{% static 'img/safety/safety_02.png' %}" class="img-responsive" alt="img"></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_03.png' %}" ><img src="{% static 'img/safety/safety_03.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_04.png' %}" ><img src="{% static 'img/safety/safety_04.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_05.png' %}" ><img src="{% static 'img/safety/safety_05.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_06.png' %}" ><img src="{% static 'img/safety/safety_06.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_07.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_07@2x.png' %}"><img src="{% static 'img/safety/safety_07.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_08.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_08@2x.png' %}"><img src="{% static 'img/safety/safety_08.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_09.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_09@2x.png' %}"><img src="{% static 'img/safety/safety_09.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_10.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_10@2x.png' %}"><img src="{% static 'img/safety/safety_10.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_11.png' %}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{% static 'img/safety/safety_11@2x.png' %}"><img src="{% static 'img/safety/safety_11.png' %}" class="img-responsive " alt="img"></a></div>
                     </div>
 					</div>
                 </div>
             </div>
 		</div>
 
+        <div class="show_safe">
+          <div class="overlay_safe"></div>
+          <div class="img-show_safe">
+            <span>X</span>
+            <img src="">
+          </div>
+        </div>
+        <style>
+            .show_safe{
+                z-index: 999;
+                display: none;
+            }
+            .show .overlay_safe{
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,.66);
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .show .img-show_safe{
+                width: 600px;
+                height: 400px;
+                background: #FFF;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                overflow: hidden
+            }
+            .img-show_safe span{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 99;
+                cursor: pointer;
+            }
+            .img-show_safe img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        </style>
+        <script>
+            $(function () {
+                $(".owl-items").click(function () {
+                    var $src = $(this).attr("src");
+                    $(".show_safe").fadeIn();
+                    $(".img-show_safe img").attr("src", $src);
+                });
+
+                $("span, .overlay_safe").click(function () {
+                    $(".show_safe").fadeOut();
+                });
+
+                });
+        </script>
 	</section>
 	<!-- /Section: works -->
 
@@ -397,7 +457,7 @@
           <div class="portfolio-items">
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fir">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_01.png' %}" title="Janaury Event" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_01.png' %}" title="January Event" rel="prettyPhoto">
                     <!--<a href="img/events/event_01.png" title="Project description" rel="prettyPhoto"> -->
                   <div class="hover-text">
                     <h4>January</h4>
@@ -408,47 +468,47 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fir">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_02.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_02.png' %}" title="February Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>February</h4>
                     <p>Jan-Mar</p>
                   </div>
-                  <img src="{% static 'img/events/event_02.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
+                  <img src="{% static 'img/events/event_02.png' %}"  class="img-responsive" alt="February Event"> </a> </div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fir">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_03.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_03.png' %}" title="March Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>March</h4>
                     <p>Jan-Mar</p>
                   </div>
-                  <img src="{% static 'img/events/event_03.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
+                  <img src="{% static 'img/events/event_03.png' %}"  class="img-responsive" alt="March Event"> </a> </div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 fir">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_04.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_04.png' %}" title="April Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>April</h4>
                     <p>Apr-Jun</p>
                   </div>
-                  <img src="{% static 'img/events/event_04.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
+                  <img src="{% static 'img/events/event_04.png' %}"  class="img-responsive" alt="May Event"> </a> </div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 sec">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_05.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_05.png' %}" title="May Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>May</h4>
                     <p>Apr-Jun</p>
                   </div>
-                  <img src="{% static 'img/events/event_05.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
+                  <img src="{% static 'img/events/event_05.png' %}"  class="img-responsive" alt="June Event"> </a> </div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 sec">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_06.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_06.png' %}" title="July  Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>June</h4>
                     <p>Apr-Jun</p>
@@ -458,52 +518,52 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 sec">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_07.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_07.png' %}" title="August Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>July</h4>
                     <p>Jul-Sep</p>
                   </div>
-                  <img src="{% static 'img/events/event_07.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
+                  <img src="{% static 'img/events/event_07.png' %}"  class="img-responsive" alt="August Event"> </a> </div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 sec">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_08.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_08.png' %}" title="September Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>August</h4>
                     <p>Jul-Sep</p>
                   </div>
-                  <img src="{% static 'img/events/event_08.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
+                  <img src="{% static 'img/events/event_08.png' %}"  class="img-responsive" alt="September Event"> </a> </div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 thi">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_09.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_09.png' %}" title="October Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>September</h4>
                     <p>Jul-Sep</p>
                   </div>
-                  <img src="{% static 'img/events/event_09.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
+                  <img src="{% static 'img/events/event_09.png' %}"  class="img-responsive" alt="October Event"> </a> </div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 thi">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_10.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_10.png' %}" title="November Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>October</h4>
                     <p>Oct-Dec</p>
                   </div>
-                  <img src="{% static 'img/events/event_10.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
+                  <img src="{% static 'img/events/event_10.png' %}"  class="img-responsive" alt="November Event"> </a> </div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 thi">
               <div class="portfolio-item">
-                <div class="hover-bg"> <a href="{% static 'img/events/event_11.png' %}" title="Project description" rel="prettyPhoto">
+                <div class="hover-bg"> <a href="{% static 'img/events/event_11.png' %}" title="December Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>November</h4>
                     <p>Oct-Dec</p>
                   </div>
-                  <img src="{% static 'img/events/event_11.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
+                  <img src="{% static 'img/events/event_11.png' %}"  class="img-responsive" alt="December Event"> </a> </div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 thi">
@@ -554,15 +614,14 @@
                             <div class="row">
 
                             <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-                                <img src="/static/img/vicroad.jpg" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+                                <img src="/static/img/viclogo1.png" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-                                <img src="/static/img/melbourne_data.jpg" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+                                <img src="/static/img/citylogo1.png" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
                             </div>
-                            <div class="clearfix visible-sm-block visible-xs-block"></div>
 
                             <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-                                <img src="/static/img/ptv.png" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+                                <img src="/static/img/ptlogo1.png" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
                             </div>
 
                             </div>
