@@ -424,7 +424,7 @@
                     map.addImage('roadwork', image);
                     map.addSource('roadconstruction',{
                         type: 'geojson',
-                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/f7561bf3/myfile.geojson'
+                        data: 'https://cdn.rawgit.com/MattMa0101/fair_journey/b01bf584/myfile.geojson'
                     })
 
                     map.addLayer({
@@ -837,10 +837,9 @@
                          var duration=line.duration;
                          var steps = data.routes[0].steps;
                          var num =1;
-<<<<<<< HEAD
+
                          instructions.insertAdjacentHTML('beforeend', "<p>Duration: " + Math.round(duration/60) + " min   Distance: " + distance + " m</p>")
-=======
->>>>>>> 1492a3b7d612b619f571c1245541340ecef07e16
+
                          steps.forEach(function(step) {
                              instructions.insertAdjacentHTML('beforeend', '<p>Step'+ num + ": "+ step.maneuver.instruction + '</p>');
                              num++;
@@ -953,16 +952,15 @@
                          var instructions = document.getElementById('instructions');
                          //var distance=line.distance;
                          var steps = data.routes[0].legs[0].steps;
-<<<<<<< HEAD
+
                          console.log(data.routes[0])
                          var num = 1;
                          var duration = data.routes[0].duration;
                          var distance = data.routes[0].distance;
                          instructions.insertAdjacentHTML('beforeend', "<p>Duration: " + Math.round(duration/60) + " min   Distance: " + distance + " m</p>")
-=======
+
                          console.log(steps)
                          var num = 1;
->>>>>>> 1492a3b7d612b619f571c1245541340ecef07e16
                          steps.forEach(function(step) {
                              instructions.insertAdjacentHTML('beforeend', '<p>Step'+ num + ": "+ step.maneuver.instruction + '</p>');
                              num ++;

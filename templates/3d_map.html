@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
     <meta charset='utf-8' />
@@ -9,10 +10,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
+
+       <link href="https://fonts.googleapis.com/css?family=Bellefair|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles-merged.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
     <style>
 
         body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #map { position:absolute; top:90px; bottom:0; width:100%; }
+        .navbar-default {
+            background-color: #222222;
+            border-color: #808080;
+        }
     </style>
 </head>
 <body>
@@ -43,6 +52,53 @@
 }
 
 </style>
+
+<div>
+          <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{% url 'index' %}" title="uiCookies:FineOak">Fair Journey</a>
+            </div>
+
+        <div id="navbar-collapse" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'new_index' %}">Home</a></li>
+            <!--<li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Our Services</a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'map' %}">Road construction information</a></li>
+                <li><a href="{% url 'map' %}">Plan your alternative route</a></li>
+                <li><a href="{% url 'map' %}">Show pedestrian Volume</a></li>
+                <li><a href="{% url 'map' %}">Nearest accessible public toilets</a></li>
+                <li><a href="{% url 'map' %}">Walking Function</a></li>
+                <li><a href="#">Coming Soon</a></li>
+                <li><a href="portfolio-single.html">Portfolio Single</a></li>
+                <li class="dropdown-submenu dropdown">
+                  <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>Sub Menu</span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Second Level Menu</a></li>
+                    <li><a href="#">Second Level Menu</a></li>
+                    <li><a href="#">Second Level Menu</a></li>
+                    <li><a href="#">Second Level Menu</a></li>
+                  </ul>
+                </li>
+                <li><a href="services.html">Services</a></li>
+              </ul>
+            </li>
+
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li class="active"><a href="{% url 'contact' %}">Pedestrian Safety</a></li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
 
 <div id='map'></div>
 <div id="state-legend" class="legend">
