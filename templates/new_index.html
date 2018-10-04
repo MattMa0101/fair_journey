@@ -92,7 +92,7 @@
                                           <div class="col-md-2 mob-logo">
                                                 <div class="row">
                                                       <div class="site-logo">
-                                                            <a href="index.html"><img src="{% static '/img/new_logo2.png' %}" alt="" /></a>
+                                                            <a href="{% url 'index' %}"><img src="{% static '/img/new_logo2.png' %}" alt="" /></a>
                                                       </div>
                                                 </div>
                                           </div>
@@ -310,9 +310,9 @@
 					<h2 class="h-bold">Weather</h2>
 					<div class="divider-header"></div>
 					<p>Fair Journey provides weather information for a better travel plan for our customers.</p>
+                    <p>It also provides the ability to change forecasting services and temperature units by clicking “forecast” or “unit”.</p>
 					</div>
                         <iframe src="https://weatherfor.us/widget?location=Melbourne+central&unit=metric" scrolling="no" frameborder="0" allowtransparency="true" style="background: transparent; width: 720px; height: 250px; overflow: hidden;"></iframe>
-
 					</div>
 				</div>
             </div>
@@ -343,18 +343,17 @@
                 <div class="col-sm-12 col-md-12 col-lg-12" >
 					<div class="wow bounceInUp" data-wow-delay="0.4s">
                     <div id="owl-works" class="owl-carousel">
-
-                        <div class="popup"><img src="{% static 'img/safety/safety_01.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_02.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_03.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_04.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_05.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_06.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_07.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_08.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_09.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_10.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_11.png' %}" class="img-responsive " alt="img"></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_01.png' %}" ><img src="{% static 'img/safety/safety_01.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_02.png' %}" ><img src="{% static 'img/safety/safety_02.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_03.png' %}" ><img src="{% static 'img/safety/safety_03.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_04.png' %}" ><img src="{% static 'img/safety/safety_04.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_05.png' %}" ><img src="{% static 'img/safety/safety_05.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_06.png' %}" ><img src="{% static 'img/safety/safety_06.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_07.png' %}" ><img src="{% static 'img/safety/safety_07.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_08.png' %}" ><img src="{% static 'img/safety/safety_08.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_09.png' %}" ><img src="{% static 'img/safety/safety_09.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_10.png' %}" ><img src="{% static 'img/safety/safety_10.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_11.png' %}" ><img src="{% static 'img/safety/safety_11.png' %}" class="img-responsive " alt="img"></a></div>
                     </div>
 					</div>
                 </div>
@@ -461,7 +460,7 @@
                     <!--<a href="img/events/event_01.png" title="Project description" rel="prettyPhoto"> -->
                   <div class="hover-text">
                     <h4>January</h4>
-                    <p>Jan-Mar</p>
+                    <p>Jan-Apr</p>
                   </div>
                   <img src="{% static 'img/events/event_01.png' %}"  class="img-responsive" alt="January Event"> </a> </div>
               </div>
@@ -471,7 +470,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_02.png' %}" title="February Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>February</h4>
-                    <p>Jan-Mar</p>
+                    <p>Jan-Apr</p>
                   </div>
                   <img src="{% static 'img/events/event_02.png' %}"  class="img-responsive" alt="February Event"> </a> </div>
               </div>
@@ -481,7 +480,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_03.png' %}" title="March Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>March</h4>
-                    <p>Jan-Mar</p>
+                    <p>Jan-Apr</p>
                   </div>
                   <img src="{% static 'img/events/event_03.png' %}"  class="img-responsive" alt="March Event"> </a> </div>
               </div>
@@ -491,7 +490,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_04.png' %}" title="April Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>April</h4>
-                    <p>Apr-Jun</p>
+                    <p>Jan-Apr</p>
                   </div>
                   <img src="{% static 'img/events/event_04.png' %}"  class="img-responsive" alt="May Event"> </a> </div>
               </div>
@@ -501,7 +500,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_05.png' %}" title="May Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>May</h4>
-                    <p>Apr-Jun</p>
+                    <p>May-Aug</p>
                   </div>
                   <img src="{% static 'img/events/event_05.png' %}"  class="img-responsive" alt="June Event"> </a> </div>
               </div>
@@ -511,7 +510,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_06.png' %}" title="July  Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>June</h4>
-                    <p>Apr-Jun</p>
+                    <p>May-Aug</p>
                   </div>
                   <img src="{% static 'img/events/event_06.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
               </div>
@@ -521,7 +520,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_07.png' %}" title="August Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>July</h4>
-                    <p>Jul-Sep</p>
+                    <p>May-Aug</p>
                   </div>
                   <img src="{% static 'img/events/event_07.png' %}"  class="img-responsive" alt="August Event"> </a> </div>
               </div>
@@ -531,7 +530,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_08.png' %}" title="September Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>August</h4>
-                    <p>Jul-Sep</p>
+                    <p>May-Aug</p>
                   </div>
                   <img src="{% static 'img/events/event_08.png' %}"  class="img-responsive" alt="September Event"> </a> </div>
               </div>
@@ -541,7 +540,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_09.png' %}" title="October Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>September</h4>
-                    <p>Jul-Sep</p>
+                    <p>Sep-Dec</p>
                   </div>
                   <img src="{% static 'img/events/event_09.png' %}"  class="img-responsive" alt="October Event"> </a> </div>
               </div>
@@ -551,7 +550,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_10.png' %}" title="November Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>October</h4>
-                    <p>Oct-Dec</p>
+                    <p>Sep-Dec</p>
                   </div>
                   <img src="{% static 'img/events/event_10.png' %}"  class="img-responsive" alt="November Event"> </a> </div>
               </div>
@@ -561,7 +560,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_11.png' %}" title="December Event" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>November</h4>
-                    <p>Oct-Dec</p>
+                    <p>Sep-Dec</p>
                   </div>
                   <img src="{% static 'img/events/event_11.png' %}"  class="img-responsive" alt="December Event"> </a> </div>
               </div>
@@ -571,7 +570,7 @@
                 <div class="hover-bg"> <a href="{% static 'img/events/event_12.png' %}" title="Project description" rel="prettyPhoto">
                   <div class="hover-text">
                     <h4>December</h4>
-                    <p>Oct-Dec</p>
+                    <p>Sep-Dec</p>
                   </div>
                   <img src="{% static 'img/events/event_12.png' %}"  class="img-responsive" alt="Project Title"> </a> </div>
               </div>

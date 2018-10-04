@@ -29,6 +29,18 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
     <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{% static 'valera/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'valera/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'valera/css/nivo-lightbox.css" rel="stylesheet' %}" />
+	<link href="{% static 'valera/css/nivo-lightbox-theme/default/default.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'valera/css/owl.carousel.css' %}" rel="stylesheet" media="screen" />
+    <link href="{% static 'valera/css/owl.theme.css' %}" rel="stylesheet" media="screen" />
+	<link href="{% static 'valera/css/flexslider.css' %}" rel="stylesheet" />
+	<link href="{% static 'valera/css/animate.css' %}" rel="stylesheet" />
+    <link href="{% static 'valera/css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'valera/color/default.css' %}" rel="stylesheet">
+
+
     <style>
         html, body {
             margin: 0;
@@ -81,12 +93,22 @@
         #toggle  {
             height:30px;
             width:30px;
-            top:90px;
+            top:2px;
             position: absolute;
-            left: 300px;
+            left: 265px;
             background-color: #f9f9f9;
             color:black;
     }
+        #toggle_2  {
+            height:30px;
+            width:30px;
+            top:90px;
+            position: absolute;
+            left: 0px;
+            background-color: #f9f9f9;
+            color:black;
+            display: none;
+        }
         ul.pin-top {
             border-radius: 3px;
             opacity: 1;
@@ -223,61 +245,53 @@
     <script src = 'https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js'></script>
 
 
-    <div>
-        <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="{% url 'index' %}" title="uiCookies:FineOak">Fair Journey</a>
-            </div>
+ <div id="navigation">
+        <nav class="navbar navbar-custom" role="navigation">
+                              <div class="container">
+                                    <div class="row">
+                                          <div class="col-md-2 mob-logo">
+                                                <div class="row">
+                                                      <div class="site-logo">
+                                                            <a href="{% url 'index' %}"><img src="{% static '/img/new_logo2.png' %}" alt="" /></a>
+                                                      </div>
+                                                </div>
+                                          </div>
 
-        <div id="navbar-collapse" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'new_index' %}">Home</a></li>
-            <!--<li class="dropdown">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Our Services</a>
-              <ul class="dropdown-menu">
-                <li><a href="{% url 'map' %}">Road construction information</a></li>
-                <li><a href="{% url 'map' %}">Plan your alternative route</a></li>
-                <li><a href="{% url 'map' %}">Show pedestrian Volume</a></li>
-                <li><a href="{% url 'map' %}">Nearest accessible public toilets</a></li>
-                <li><a href="{% url 'map' %}">Walking Function</a></li>
-                <li><a href="#">Coming Soon</a></li>
-                <li><a href="portfolio-single.html">Portfolio Single</a></li>
-                <li class="dropdown-submenu dropdown">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>Sub Menu</span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                  </ul>
-                </li>
-                <li><a href="services.html">Services</a></li>
-              </ul>
-            </li>
 
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li class="active"><a href="{% url 'contact' %}">Pedestrian Safety</a></li>-->
-          </ul>
-        </div>
-      </div>
-    </nav></div>
+                                          <div class="col-md-10 mob-menu">
+                                                <div class="row">
+                                                      <!-- Brand and toggle get grouped for better mobile display -->
+                                          <div class="navbar-header">
+                                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                                                <i class="fa fa-bars"></i>
+                                                </button>
+                                          </div>
+                                                      <!-- Collect the nav links, forms, and other content for toggling -->
+                                                      <div class="collapse navbar-collapse" id="menu">
+                                                            <ul class="nav navbar-nav navbar-right">
+                                                                  <li><a href="{% url 'index' %}">Home</a></li>
+
+                                                            </ul>
+                                                      </div>
+                                                      <!-- /.Navbar-collapse -->
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                              <!-- /.container -->
+                        </nav>
+    </div>
 
     <div id='map'></div>
-    <button id="toggle">&#9776</button>
-    <!--<ul class='pin-top pad1 quiet space-top2 space-left2 col3'>-->
 
+    <!--<ul class='pin-top pad1 quiet space-top2 space-left2 col3'>-->
+    <button id="toggle_2" onclick="sidebar_control()">&#9776</button>
     <ul id="sidebar" class='pin-top col3'>
         <li id='dst-location' class='fill-white keyline-bottom'>
             <!--<span class='label'>Choose starting location</span>-->
             <div class='content'>
-                <div>Start Point</div>
+                <div>Start Point <button id="toggle" onclick="sidebar_control()">&#9776</button></div>
+
                 <div id='geocoder_1' class='row1 space-top1'></div>
             </div>
             <div class='content'>
@@ -324,19 +338,24 @@
 
 
     <script>
-       var button = document.getElementById('toggle'),
-       sidebar = document.getElementById('sidebar');
+      // var button = document.getElementById('toggle'),
+       //sidebar = document.getElementById('sidebar');
 
-
-       button.onclick = function() {
+        //console.log(button);
+       function sidebar_control(){
+           var button = document.getElementById('toggle'),
+               button2 = document.getElementById('toggle_2'),
+               sidebar = document.getElementById('sidebar');
+            console.log("11111")
            if (sidebar.style.display === "none") {
             sidebar.style.display = "block";
-            button.style.left = "300px";
+            button.style.left = "265px";
+             button2.style.display = 'none'
         } else {
             sidebar.style.display = "none";
-            button.style.left = "0px";
+            button2.style.display = "block";
     }
-       }
+       };
 
         mapboxgl.accessToken = 'pk.eyJ1IjoidGlhbnl1ZW1hMDEwMSIsImEiOiJjamwzdjk2OTYwMTl4M3dtdHgzYW16ZnJuIn0.9DqSeP50_GMdrZiD3SkYng';
         var map = new mapboxgl.Map({
@@ -415,6 +434,7 @@
             $('#example_paginate').hide();
             $('#example_filter').hide();
             $('#example_info').hide();
+            $('#top-1').hide();
         var start_point,destination, routines;
 
         map.on('load', function () {
@@ -539,7 +559,7 @@
                 document.location.reload(true);
             });
 
-            /* map.on('click', 'toilet', function (e) {
+             map.on('click', 'crowded', function (e) {
                 var coordinates = e.features[0].geometry.coordinates.slice();
                 var description = e.features[0].properties.description;
 
@@ -551,9 +571,12 @@
                 }
                 console.log(coordinates);
                 destination = coordinates;
+
                 if(start_point != null && destination != null){
+                    document.getElementById("geocoder_2").getElementsByTagName('input')[0].value = 'Train Station'
                     getRouteInfo(start_point, destination);}
-            });*/
+            });
+
             var popup = new mapboxgl.Popup({
                     closeButton: false,
                     closeOnClick: false
@@ -614,6 +637,32 @@
                 popup.remove();
             });
 
+            map.on('mouseenter', 'places', function(e) {
+                // Change the cursor style as a UI indicator.
+                 map.getCanvas().style.cursor = 'pointer';
+
+                var coordinates = e.features[0].geometry.coordinates.slice();
+                var description = e.features[0].properties.description;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                }
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+              popup.setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(map);
+            });
+
+            map.on('mouseleave', 'places', function() {
+                map.getCanvas().style.cursor = '';
+                popup.remove();
+            });
+
             $('#hidetoilet').on('click', function(){
                 console.log(document.getElementById('hidetoilet').innerHTML)
                 if(document.getElementById('hidetoilet').innerHTML == "Hide Toilets"){
@@ -667,6 +716,8 @@
             });
 
             document.getElementById('geocoder_2').appendChild(geocoder_2.onAdd(map));
+            document.getElementById("geocoder_1").getElementsByTagName('input')[0].placeholder = 'e.g) Flinders Street Station, Melbourne';
+            document.getElementById("geocoder_2").getElementsByTagName('input')[0].placeholder = 'e.g) Melbourne Central Station, Melbourne';
 
             map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/40c5efb2/if_Facebook_UI-07_2344289.png', (error, image) => {
 
@@ -838,7 +889,7 @@
                          var steps = data.routes[0].steps;
                          var num =1;
 
-                         instructions.insertAdjacentHTML('beforeend', "<p>Duration: " + Math.round(duration/60) + " min   Distance: " + distance + " m</p>")
+                         instructions.insertAdjacentHTML('beforeend', "<p>Duration: " + Math.round(duration/60) + " min   Distance: " + Math.round(distance) + " m</p>")
 
                          steps.forEach(function(step) {
                              instructions.insertAdjacentHTML('beforeend', '<p>Step'+ num + ": "+ step.maneuver.instruction + '</p>');
@@ -863,7 +914,7 @@
                             // Populate the popup and set its coordinates
                             // based on the feature found.
                                   popup.setLngLat(e.lngLat)
-                                        .setHTML("<p><strong>Duration: </strong>" +  Math.round(duration/60) + "min</p><p><strong>Distance: </strong>" + distance + "m</p>" )
+                                        .setHTML("<p><strong>Duration: </strong>" +  Math.round(duration/60) + "min</p><p><strong>Distance: </strong>" + Math.round(distance) + "m</p>" )
                                         .addTo(map);
                                 });
 
@@ -957,7 +1008,7 @@
                          var num = 1;
                          var duration = data.routes[0].duration;
                          var distance = data.routes[0].distance;
-                         instructions.insertAdjacentHTML('beforeend', "<p>Duration: " + Math.round(duration/60) + " min   Distance: " + distance + " m</p>")
+                         instructions.insertAdjacentHTML('beforeend', "<p>Duration: " + Math.round(duration/60) + " min   Distance: " + Math.round(distance) + " m</p>")
 
                          console.log(steps)
                          var num = 1;
@@ -973,7 +1024,7 @@
                             // Populate the popup and set its coordinates
                             // based on the feature found.
                                   popup.setLngLat(e.lngLat)
-                                        .setHTML("<p><strong>Duration: </strong>" +  Math.round(duration/60) + "min</p><p><strong>Distance: </strong>" + distance + "m</p>" )
+                                        .setHTML("<p><strong>Duration: </strong>" +  Math.round(duration/60) + "min</p><p><strong>Distance: </strong>" + Math.round(distance) + "m</p>" )
                                         .addTo(map);
                                 });
 
@@ -985,6 +1036,8 @@
                  });
             }
             })
+
+        alert("The Fair Journey Service only provide information about road project, toilet and station with elevators nearby Melbourne central. Due to data restriction, we cannot provide other areas information. We are reaaly sorry about that.");
        /**
           function getVolume() {
                     L.mapbox.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejkyYm9qbjAwdm8yd3RlaXNtZmN3a3gifQ.Uc9LFNtZpBHYc00cU-tQUA';
