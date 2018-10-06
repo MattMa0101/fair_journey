@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-{% load static %}
+
 <html lang="en">
 <head>
   <meta charset='utf-8' />
@@ -10,8 +11,8 @@
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
     <link href="https://fonts.googleapis.com/css?family=Bellefair|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/styles-merged.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="stylesheet" href="/static/css/styles-merged.css">
+    <link rel="stylesheet" href="/static/css/style.min.css">
 
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.0.1/mapbox-gl-geocoder.js'></script>
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.0.1/mapbox-gl-geocoder.css' type='text/css' />
@@ -29,16 +30,16 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
     <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{% static 'valera/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'valera/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
-	<link href="{% static 'valera/css/nivo-lightbox.css" rel="stylesheet' %}" />
-	<link href="{% static 'valera/css/nivo-lightbox-theme/default/default.css' %}" rel="stylesheet" type="text/css" />
-	<link href="{% static 'valera/css/owl.carousel.css' %}" rel="stylesheet" media="screen" />
-    <link href="{% static 'valera/css/owl.theme.css' %}" rel="stylesheet" media="screen" />
-	<link href="{% static 'valera/css/flexslider.css' %}" rel="stylesheet" />
-	<link href="{% static 'valera/css/animate.css' %}" rel="stylesheet" />
-    <link href="{% static 'valera/css/style.css' %}" rel="stylesheet">
-	<link href="{% static 'valera/color/default.css' %}" rel="stylesheet">
+    <link href="/static/valera/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/valera/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="/static/valera/css/nivo-lightbox.css%22%20rel%3D%22stylesheet" />
+	<link href="/static/valera/css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="/static/valera/css/owl.carousel.css" rel="stylesheet" media="screen" />
+    <link href="/static/valera/css/owl.theme.css" rel="stylesheet" media="screen" />
+	<link href="/static/valera/css/flexslider.css" rel="stylesheet" />
+	<link href="/static/valera/css/animate.css" rel="stylesheet" />
+    <link href="/static/valera/css/style.css" rel="stylesheet">
+	<link href="/static/valera/color/default.css" rel="stylesheet">
 
 
     <style>
@@ -221,18 +222,18 @@
     </style>
 </head>
 <body>
-    <script src="{% static "assets/web/assets/jquery/jquery.min.js" %}"></script>
-    <script src="{% static "assets/popper/popper.min.js" %}"></script>
-    <script src="{% static "assets/tether/tether.min.js" %}"></script>
-    <script src="{% static "assets/bootstrap/js/bootstrap.min.js" %}"></script>
-    <script src="{% static "assets/smoothscroll/smooth-scroll.js" %}"></script>
-    <script src="{% static "assets/dropdown/js/script.min.js" %}"></script>
-    <script src="{% static "assets/ytplayer/jquery.mb.ytplayer.min.js" %}"></script>
-    <script src="{% static "assets/vimeoplayer/jquery.mb.vimeo_player.js" %}"></script>
-    <script src="{% static "assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js" %}"></script>
-    <script src="{% static "assets/touchswipe/jquery.touch-swipe.min.js" %}"></script>
-    <script src="{% static "assets/theme/js/script.js" %}"></script>
-    <script src="{% static "assets/slidervideo/script.js" %}"></script>
+    <script src="/static/assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="/static/assets/popper/popper.min.js"></script>
+    <script src="/static/assets/tether/tether.min.js"></script>
+    <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="/static/assets/dropdown/js/script.min.js"></script>
+    <script src="/static/assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
+    <script src="/static/assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
+    <script src="/static/assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
+    <script src="/static/assets/touchswipe/jquery.touch-swipe.min.js"></script>
+    <script src="/static/assets/theme/js/script.js"></script>
+    <script src="/static/assets/slidervideo/script.js"></script>
     <script src = 'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
     <script src = 'https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js'></script>
     <script src = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js'></script>
@@ -247,7 +248,7 @@
                                           <div class="col-md-2 mob-logo">
                                                 <div class="row">
                                                       <div class="site-logo">
-                                                            <a href="{% url 'index' %}"><img src="{% static '/img/new_logo2.png' %}" alt="" /></a>
+                                                            <a href="/index/"><img src="/static/img/new_logo2.png" alt="" /></a>
                                                       </div>
                                                 </div>
                                           </div>
@@ -264,7 +265,7 @@
                                                       <!-- Collect the nav links, forms, and other content for toggling -->
                                                       <div class="collapse navbar-collapse" id="menu">
                                                             <ul class="nav navbar-nav navbar-right">
-                                                                  <li><a href="{% url 'index' %}">Home</a></li>
+                                                                  <li><a href="/index/">Home</a></li>
 
                                                             </ul>
                                                       </div>
@@ -368,6 +369,7 @@
                     buttons: [
                         {
                             extend: 'pdfHtml5',
+			    text: 'Download PDF',
                             customize: function ( doc ) {
                                 var img = new Image();
                                 var mapCanvas = map.getCanvas(document.querySelector('.mapboxgl-canvas'));
@@ -942,7 +944,7 @@
 
                  console.log(line)
                  var nearby = [];
-                 $.get("{% static "myfile.geojson" %}", function(data) {
+                 $.get("/static/myfile.geojson", function(data) {
                      var project = JSON.parse(data);
                      console.log(project.features[0]);
 
@@ -1033,11 +1035,7 @@
             }
             })
 
-<<<<<<< HEAD
         alert("Fair Journey only provides information about road construction sites, wheelchair accessible toilets and stations with lifts in Melbourne CBD.");
-=======
-        alert("The Fair Journey Service only provide information about road project, toilet and station with elevators nearby Melbourne central. Due to data restriction, we cannot provide other areas information. We are reaaly sorry about that.");
->>>>>>> b2d484712f07fad6f7d603c365cf1bf3420e637b
        /**
           function getVolume() {
                     L.mapbox.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejkyYm9qbjAwdm8yd3RlaXNtZmN3a3gifQ.Uc9LFNtZpBHYc00cU-tQUA';
