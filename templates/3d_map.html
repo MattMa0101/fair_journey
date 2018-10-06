@@ -14,6 +14,16 @@
        <link href="https://fonts.googleapis.com/css?family=Bellefair|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles-merged.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link href="{% static 'valera/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'valera/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'valera/css/nivo-lightbox.css" rel="stylesheet' %}" />
+	<link href="{% static 'valera/css/nivo-lightbox-theme/default/default.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'valera/css/owl.carousel.css' %}" rel="stylesheet" media="screen" />
+    <link href="{% static 'valera/css/owl.theme.css' %}" rel="stylesheet" media="screen" />
+	<link href="{% static 'valera/css/flexslider.css' %}" rel="stylesheet" />
+	<link href="{% static 'valera/css/animate.css' %}" rel="stylesheet" />
+    <link href="{% static 'valera/css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'valera/color/default.css' %}" rel="stylesheet">
     <style>
 
         body { margin:0; padding:0; }
@@ -53,56 +63,46 @@
 
 </style>
 
-<div>
-          <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="{% url 'index' %}" title="uiCookies:FineOak">Fair Journey</a>
-            </div>
+<div id="navigation">
+        <nav class="navbar navbar-custom" role="navigation">
+                              <div class="container">
+                                    <div class="row">
+                                          <div class="col-md-2 mob-logo">
+                                                <div class="row">
+                                                      <div class="site-logo">
+                                                            <a href="{% url 'index' %}"><img src="{% static '/img/new_logo2.png' %}" alt="" /></a>
+                                                      </div>
+                                                </div>
+                                          </div>
 
-        <div id="navbar-collapse" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'new_index' %}">Home</a></li>
-            <!--<li class="dropdown">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Our Services</a>
-              <ul class="dropdown-menu">
-                <li><a href="{% url 'map' %}">Road construction information</a></li>
-                <li><a href="{% url 'map' %}">Plan your alternative route</a></li>
-                <li><a href="{% url 'map' %}">Show pedestrian Volume</a></li>
-                <li><a href="{% url 'map' %}">Nearest accessible public toilets</a></li>
-                <li><a href="{% url 'map' %}">Walking Function</a></li>
-                <li><a href="#">Coming Soon</a></li>
-                <li><a href="portfolio-single.html">Portfolio Single</a></li>
-                <li class="dropdown-submenu dropdown">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>Sub Menu</span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                    <li><a href="#">Second Level Menu</a></li>
-                  </ul>
-                </li>
-                <li><a href="services.html">Services</a></li>
-              </ul>
-            </li>
 
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li class="active"><a href="{% url 'contact' %}">Pedestrian Safety</a></li>-->
-          </ul>
-        </div>
-      </div>
-    </nav>
-</div>
+                                          <div class="col-md-10 mob-menu">
+                                                <div class="row">
+                                                      <!-- Brand and toggle get grouped for better mobile display -->
+                                          <div class="navbar-header">
+                                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                                                <i class="fa fa-bars"></i>
+                                                </button>
+                                          </div>
+                                                      <!-- Collect the nav links, forms, and other content for toggling -->
+                                                      <div class="collapse navbar-collapse" id="menu">
+                                                            <ul class="nav navbar-nav navbar-right">
+                                                                  <li><a href="{% url 'index' %}">Home</a></li>
+
+                                                            </ul>
+                                                      </div>
+                                                      <!-- /.Navbar-collapse -->
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                              <!-- /.container -->
+                        </nav>
+    </div>
 
 <div id='map'></div>
 <div id="state-legend" class="legend">
-    <h4>Population</h4>
+    <h4>Volume</h4>
 <script>
     var ls = ['0-300', '300-700', '700+'];
     var colors = ['#137eb9', '#f59926', '#d02e16'];

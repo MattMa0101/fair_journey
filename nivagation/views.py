@@ -15,66 +15,55 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 # return page
 
-@login_required(login_url='/login/')
 def index(request):
     html = TemplateResponse(request, 'new_index.html')
     return HttpResponse(html.render())
 
-@login_required(login_url='/login/')
 # return map page
 def map(request):
     html = TemplateResponse(request, 'new_map.html')
     return HttpResponse(html.render())
 
-@login_required(login_url='/login/')
 # return service page
 def service(request):
     html = TemplateResponse(request, 'map.html')
     return HttpResponse(html.render())
 
-@login_required(login_url='/login/')
 # return surface page
 def surface(request):
     html = TemplateResponse(request, 'nearby_toilets.html')
     return HttpResponse(html.render())
 
-@login_required(login_url='/login/')
 # return contact page
 def contact(request):
     html = TemplateResponse(request, 'contact.html')
     return HttpResponse(html.render())
 
-@login_required(login_url='/login/')
 # return about page
 def about(request):
     html = TemplateResponse(request, 'about.html')
     return HttpResponse(html.render())
 
-@login_required(login_url='/login/')
 # return project page
 def project(request):
     html = TemplateResponse(request, 'project.html')
     return HttpResponse(html.render())
 
-@login_required(login_url='/login/')
 # return about page
 def new_index(request):
     html = TemplateResponse(request, 'new_index.html')
     return HttpResponse(html.render())
 
-@login_required(login_url='/login/')
 # return about page
 def small_map(request):
     html = TemplateResponse(request, 'small_map.html')
     return HttpResponse(html.render())
 
-@login_required(login_url='/login/')
 # return about page
 def surface(request):
     html = TemplateResponse(request, 'surface.html')
     return HttpResponse(html.render())
 
-@login_required(login_url='/login/')
 def d3_map(request):
     html = TemplateResponse(request, '3d_map.html')
     return HttpResponse(html.render())

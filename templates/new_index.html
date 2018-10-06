@@ -76,8 +76,8 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
             <h1>We are <span class="brand-heading">Fair Journey</span></h1>
-            <p class="intro-text">A full-service journey planner that loves what we do</p>
-            <a href="#about" class="btn btn-default page-scroll">START PLANNING</a> </div>
+            <p class="intro-text">We help you plan your journey during construction disruption and ensure you have a pleasant experience.</p>
+            <a href="#service" class="btn btn-default page-scroll">START PLANNING</a> </div>
         </div>
         </div>
     </div>
@@ -92,7 +92,7 @@
                                           <div class="col-md-2 mob-logo">
                                                 <div class="row">
                                                       <div class="site-logo">
-                                                            <a href="index.html"><img src="{% static '/img/new_logo2.png' %}" alt="" /></a>
+                                                            <a href="{% url 'index' %}"><img src="{% static '/img/new_logo2.png' %}" alt="" /></a>
                                                       </div>
                                                 </div>
                                           </div>
@@ -110,12 +110,11 @@
                                                       <div class="collapse navbar-collapse" id="menu">
                                                             <ul class="nav navbar-nav navbar-right">
                                                                   <li class="active"><a href="#intro">Home</a></li>
-                                                                  <li><a href="#about">About Us</a></li>
-																  <li><a href="#service">Services</a></li>
+                                                                  <li><a href="#service">Services</a></li>
                                                                   <li><a href="#weather">Weather</a></li>
-                                                                  <li><a href="#works">Pedestrian Safety</a></li>
+                                                                 <!-- <li><a href="#works">Pedestrian Safety</a></li> -->
                                                                   <li><a href="#event">Events</a></li>
-
+                                                                  <li><a href="#about">About Us</a></li>
                                                             </ul>
                                                       </div>
                                                       <!-- /.Navbar-collapse -->
@@ -128,43 +127,7 @@
     </div>
     <!-- /Navigation -->
 
-	<!-- Section: about -->
-    <div id="about">
-    <section class="probootstrap-section probootstrap-bg-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 probootstrap-animate">
-              <br />
-              <h2 class="mb0">Welcome To Fair Journey</h2>
-           <!-- <p class="lead mt0">The proejct by <a href="www.monash.edu/">Monash I</a></p>-->
-          </div>
-          <div class="col-md-6 probootstrap-animate">
-           <br />
-            <p style="text-align:justify">The Fair journey project is dedicated to helping the disability with mobility issues to avoid the inconvenience caused by construction during their travels in Melbourne CBD. The project is committed to providing effective and efficent information to help them choose a more suitable travel plan that has reached the goal of building equality for all.</p>
-
-            <p style="text-align:justify">The Fair journey project timely and accurately update engineering and road information for the Melbourne CBD area through VICroad dataset and government open dataset. Customers can always search for construction information and road conditions in the vicinity of Melbourne and make travel options and plans that are more suitable for them based on the information they have.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    </div>
-
-	<!-- /Section: about -->
-
-	<!-- Section: parallax 1 -->
-	<section id="parallax1" class="home-section parallax text-light" data-stellar-background-ratio="0.5">
-           <div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="text-center">
-						<h2 class="big-heading highlight-dark wow bounceInDown" data-wow-delay="0.2s">Fair Journey is a system that helps you identify locations experiencing construction disruptions due to the construction of buildings, revamp of buildings and roads, obstructed roadways and footpaths. </h2>
-						</div>
-					</div>
-				</div>
-            </div>
-	</section>
-
-	<!-- Section: services -->
+    <!-- Section: services -->
     <section id="service" class="home-section color-dark bg-white">
 		<div class="container marginbot-50">
 			<div class="row">
@@ -186,17 +149,17 @@
 
         <div class="row">
             <div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow fadeInLeft" data-wow-delay="0.2s">
+				<div class="wow fadeInRight" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<span class="pe-7s-tools pe-5x"></span>
+						<span class="pe-7s-map pe-5x"></span>
 					</div>
 					<div class="service-desc">
-						<h5>Road Surface</h5>
+						<h5>Journey Planner</h5>
 						<p>
-						The road surface information in Melbourne CBD, which contains the surface material, initialized year and condition level for the travelling plan of the disability
-						</p> <br /> <br />
-						<a href="{% url 'surface' %}" class="btn btn-skin">Plan more</a>
+					    We help you plan ahead with a journey in Melbourne CBD. Provide routes to your destination from your starting or current location and provide PDF download.
+						</p>
+						<a href="{% url 'map' %}" class="btn btn-skin">Learn more</a>
 					</div>
                 </div>
 				</div>
@@ -210,9 +173,9 @@
 					<div class="service-desc">
 						<h5>Pedestrian Volume</h5>
 						<p>
-						Fair Journey offers a pedestrian volume of the Melbourne CBD for a better travel experience for our customers.
-						</p> <br /> <br /> <br />
-						<a href="{% url 'd3_map' %}" class="btn btn-skin">Plan more</a>
+						We offer a pedestrian volume of the Melbourne CBD for a better travel experience for you.
+						</p> <br /> <br />
+						<a href="{% url 'd3_map' %}" class="btn btn-skin">Learn more</a>
 					</div>
                 </div>
 				</div>
@@ -225,27 +188,27 @@
 						<span class="pe-7s-map-marker pe-5x"></span>
 					</div>
 					<div class="service-desc">
-						<h5>Accessible Toilet & Elevators</h5>
+						<h5>Toilet & Lift</h5>
 						<p>
-						Fair Journey will guide customers from their current locations to the nearest wheelchair accessible toilet in Mebourne CBD or railway station with elevator for convenience.
+						We will guide you from your current locations to the nearest wheelchair accessible toilets in Melbourne CBD or railway stations with lifts for convenience.
 						</p>
-						<a href="{% url 'small_map' %}" class="btn btn-skin">Plan more</a>
+						<a href="{% url 'small_map' %}" class="btn btn-skin">Learn more</a>
 					</div>
                 </div>
 				</div>
             </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow fadeInRight" data-wow-delay="0.2s">
+             <div class="col-xs-6 col-sm-3 col-md-3">
+				<div class="wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<span class="pe-7s-map pe-5x"></span>
+						<span class="pe-7s-tools pe-5x"></span>
 					</div>
 					<div class="service-desc">
-						<h5>Journey Planner</h5>
+						<h5>Road Surface</h5>
 						<p>
-						Customers can plan a trip to Melbourne CBD via this map. They can set the route to the destination or a new alternate route from the origin or current location. They can also download their searching information in PDF form.
+						The road surface information in Melbourne CBD, which contains the surface material, initialized year and condition level for the travelling plan of the disability.
 						</p>
-						<a href="{% url 'map' %}" class="btn btn-skin">Plan more</a>
+						<a href="{% url 'surface' %}" class="btn btn-skin">Learn more</a>
 					</div>
                 </div>
 				</div>
@@ -299,6 +262,7 @@
 				</div>
             </div>
 	</section>
+    <!-- /Section: parallax 2 -->
 
     <!-- Section: weather -->
     <section id="weather" class="home-section color-dark text-center bg-white">
@@ -309,10 +273,10 @@
 					<div class="section-heading text-center">
 					<h2 class="h-bold">Weather</h2>
 					<div class="divider-header"></div>
-					<p>Fair Journey provides weather information for a better travel plan for our customers.</p>
+					<p>We provides weather information for a better travel plan for you.</p>
+                    <p>You can change forecasting services and temperature units by clicking “forecast” or “unit”.</p>
 					</div>
                         <iframe src="https://weatherfor.us/widget?location=Melbourne+central&unit=metric" scrolling="no" frameborder="0" allowtransparency="true" style="background: transparent; width: 720px; height: 250px; overflow: hidden;"></iframe>
-
 					</div>
 				</div>
             </div>
@@ -322,6 +286,7 @@
     <!-- /Section: weather -->
 
 	<!-- Section: works -->
+    <!--
     <section id="works" class="home-section color-dark text-center bg-dark">
 		<div class="container marginbot-50">
 			<div class="row">
@@ -343,18 +308,17 @@
                 <div class="col-sm-12 col-md-12 col-lg-12" >
 					<div class="wow bounceInUp" data-wow-delay="0.4s">
                     <div id="owl-works" class="owl-carousel">
-
-                        <div class="popup"><img src="{% static 'img/safety/safety_01.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_02.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_03.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_04.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_05.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_06.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_07.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_08.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_09.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_10.png' %}" class="img-responsive " alt="img"></div>
-                        <div class="popup"><img src="{% static 'img/safety/safety_11.png' %}" class="img-responsive " alt="img"></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_01.png' %}" ><img src="{% static 'img/safety/safety_01.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_02.png' %}" ><img src="{% static 'img/safety/safety_02.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_03.png' %}" ><img src="{% static 'img/safety/safety_03.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_04.png' %}" ><img src="{% static 'img/safety/safety_04.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_05.png' %}" ><img src="{% static 'img/safety/safety_05.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_06.png' %}" ><img src="{% static 'img/safety/safety_06.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_07.png' %}" ><img src="{% static 'img/safety/safety_07.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_08.png' %}" ><img src="{% static 'img/safety/safety_08.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_09.png' %}" ><img src="{% static 'img/safety/safety_09.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_10.png' %}" ><img src="{% static 'img/safety/safety_10.png' %}" class="img-responsive " alt="img"></a></div>
+                        <div class="popup"><a href="{% static 'img/safety/safety_11.png' %}" ><img src="{% static 'img/safety/safety_11.png' %}" class="img-responsive " alt="img"></a></div>
                     </div>
 					</div>
                 </div>
@@ -421,7 +385,22 @@
                 });
         </script>
 	</section>
+	-->
 	<!-- /Section: works -->
+
+    <!-- Section: parallax 1 -->
+	<section id="parallax1" class="home-section parallax text-light" data-stellar-background-ratio="0.5">
+           <div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="text-center">
+						<h2 class="big-heading highlight-dark wow bounceInDown" data-wow-delay="0.2s">For long-term or temporarily impaired people with mobility issues.</h2>
+						</div>
+					</div>
+				</div>
+            </div>
+	</section>
+    <!-- /Section: parallax 1 -->
 
 	<!-- Section: event -->
     <section id="event" class="home-section nopadd-bot color-dark bg-white text-center">
@@ -584,6 +563,62 @@
 	</section>
 	<!-- /Section: event -->
 
+    <!-- Section: about -->
+    <section id="about" class="home-section color-dark bg-white>
+        <div class="container marginbot-50">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
+					<div class="section-heading text-center">
+					<h2 class="h-bold">About</h2>
+					<div class="divider-header"></div>
+					<br />
+                        <p style="text-align:justify">The Fair journey project is dedicated to helping the disability with mobility issues to avoid the inconvenience caused by construction during their travels in Melbourne CBD. The project is committed to providing effective and efficent information to help them choose a more suitable travel plan that has reached the goal of building equality for all.</p>
+
+                        <p style="text-align:justify">The Fair journey project timely and accurately update engineering and road information for the Melbourne CBD area through VicRoads open dataset and City of Melbourne open dataset. Customers can always search for construction information and road conditions in the vicinity of Melbourne and make travel options and plans that are more suitable for them based on the information they have.</p>
+					</div>
+					</div>
+				</div>
+			</div>
+        </div>
+    </section>
+	<!-- /Section: about -->
+
+    <!-- Section: parallax 3 -->
+	<section id="parallax3" class="home-section parallax text-light text-center" data-stellar-background-ratio="0.5">
+           <div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="testimonialslide clearfix flexslider">
+							<ul class="slides">
+								<li><blockquote>
+								Our data is provided through APIs in VicRoads and Weatherfor.us is updated hourly to maintain accuracy.
+									</blockquote>
+                                    <h4>Real-time information</h4>
+								</li>
+								<li><blockquote>
+								Our system aims to provide useful information for people with long-term or temporary mobility problems. Public facilities for people with disabilities marked with reachable range.
+                                </blockquote>
+                                    <h4>Designed for people with disabilities</h4>
+								</li>
+                                <li><blockquote>
+							    The navigation system allows the user to walk from any point.
+                                </blockquote>
+                                    <h4>Flexible travel plan</h4>
+								</li>
+                                <li><blockquote>
+							    Support the pdf download file for those unfamiliar with the small screen and those planning their trip in an analog manner.
+                                </blockquote>
+                                    <h4>Services for analog people</h4>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+            </div>
+	</section>
+    <!-- /Section: parallax 3 -->
+
 	<footer>
 		<div class="container">
 			<div class="row">
@@ -591,42 +626,34 @@
 
 					<div class="text-center">
 						<a href="#intro" class="totop"><i class="pe-7s-angle-up pe-3x"></i></a>
-
-                            <div class="row">
-                            <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-
-                            <p class="lead">All data in our website comes from open data source</p>
-                            </div>
-                            </div>
-                         <!-- END row -->
-                            <div class="row">
-
+                        <p>Back To Top</p>
+                        
+                        <div class="row">
+                            <h6 style="color: white">Open data sources that we use</h6>
                             <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-                                <img src="/static/img/viclogo1.png" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+                                <a href="https://www.vicroads.vic.gov.au/" target="_blank">
+                                    <img src="/static/img/viclogo1.png" class="img-responsive" width="180" height="120" alt="Free Bootstrap Template by uicookies.com">
+                                </a>
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-                                <img src="/static/img/citylogo1.png" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
+                                <a href="https://www.melbourne.vic.gov.au/Pages/home.aspx" target="_blank">
+                                    <img src="/static/img/citylogo1.png" class="img-responsive" width="180" height="120" alt="Free Bootstrap Template by uicookies.com">
+                                </a>
                             </div>
-
                             <div class="col-md-4 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate">
-                                <img src="/static/img/ptlogo1.png" class="img-responsive" alt="Free Bootstrap Template by uicookies.com">
-                            </div>
-
+                                <a href="https://www.ptv.vic.gov.au/" target="_blank">
+                                    <img src="/static/img/ptlogo1.png" class="img-responsive" width="180" height="120" alt="Free Bootstrap Template by uicookies.com">
+                                </a>
                             </div>
                         </div>
+                    </div>
 
-
-						<p>The Fair Journey project by Pro-Planners, Monash University<br />
-						&copy;Copyright 2015 - Valera. All rights reserved.  | Designed by <a href="http://bootstraptaste.com">BootstrapTaste</a></p>
-                        <!--
-                            All links in the footer should remain intact.
-                            Licenseing information is available at: http://bootstraptaste.com/license/
-                            You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Valera
-                        -->
-					</div>
-				</div>
-			</div>
-		</div>
+                    <br />
+                    <p>The Fair Journey project by Pro-Planners, Monash University<br />
+                    &copy;Copyright 2015 - Valera. All rights reserved.  | Designed by <a href="http://bootstraptaste.com">BootstrapTaste</a></p>
+                </div>
+            </div>
+        </div>
 	</footer>
 
     <!-- Core JavaScript Files -->

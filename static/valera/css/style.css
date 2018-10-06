@@ -1247,7 +1247,7 @@ Parallax
 ============================= */
 
 #parallax1{	
-	background-image: url(../img/parallax/5.jpg);
+	background-image: url(../img/parallax/1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     display:block;
@@ -1269,7 +1269,7 @@ Parallax
 
 
 #parallax2{	
-	background-image: url(../img/parallax/6.jpg);
+	background-image: url(../img/parallax/2.jpg);
     background-position: center;
     background-repeat: no-repeat;
     display:block;
