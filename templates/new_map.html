@@ -473,7 +473,7 @@
                         "source": 'toilet',
                         "layout": {
                                 "icon-image": "toilet_image",
-                                "icon-size": 0.05,
+                                "icon-size": 0.03,
                                 "icon-allow-overlap": true
                             }
                     });
@@ -495,7 +495,7 @@
                         "source": 'crowd',
                         "layout": {
                                 "icon-image": "crowd",
-                                "icon-size": 0.05,
+                                "icon-size": 0.03,
                                 "icon-allow-overlap": true
                             }
                     });
@@ -609,6 +609,11 @@
                     .addTo(map);
             });
 
+            map.on('mouseleave', 'toilet', function() {
+                map.getCanvas().style.cursor = '';
+                popup.remove();
+            });
+
             map.on('mouseenter', 'crowded', function(e) {
                 // Change the cursor style as a UI indicator.
                  map.getCanvas().style.cursor = 'pointer';
@@ -717,7 +722,7 @@
             document.getElementById("geocoder_1").getElementsByTagName('input')[0].placeholder = 'e.g) Flinders Street Station, Melbourne';
             document.getElementById("geocoder_2").getElementsByTagName('input')[0].placeholder = 'e.g) Melbourne Central Station, Melbourne';
 
-            map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/40c5efb2/if_Facebook_UI-07_2344289.png', (error, image) => {
+            map.loadImage('https://cdn.rawgit.com/MattMa0101/fair_journey/2511d693/circle-24.png', (error, image) => {
 
                  if (error) throw error;
                  map.addImage('start_img', image);
@@ -736,7 +741,7 @@
                      "layout": {
                          "icon-image": "start_img",
                          "icon-allow-overlap": true,
-                         "icon-size": 0.15
+                         "icon-size": 1
                      }
                  });
              });
@@ -761,7 +766,7 @@
                      "layout": {
                          "icon-image": "destination_img",
                          "icon-allow-overlap": true,
-                         "icon-size": 0.5
+                         "icon-size": 0.1
                      }
                  });
              });
@@ -788,7 +793,7 @@
                     },
                     paint: {
                         "line-color": color_list[i],
-                        "line-width": 8
+                        "line-width": 3
                     }});
             }
 
@@ -811,7 +816,7 @@
                 var searchResult = ev.result.geometry;
                 map.getSource('my_destination').setData(searchResult);
                 if(start_point != null && destination != null){
-                getRouteInfo(start_point, destination);
+                    getRouteInfo(start_point, destination);
                // getDistance(start_point, destination)
                 };
             });
@@ -921,7 +926,7 @@
                                     popup.remove();
                                 });
                          //console.log(getDistance(start_point,destination))
-                         alter("Please click on the muse where you want to change the route.")
+
                      }
                  });
 
@@ -1036,7 +1041,7 @@
             }
             })
 
-        alert("Fair Journey only provides information about road construction sites, wheelchair accessible toilets and stations with lifts in Melbourne CBD.");
+        alert("Fair Journey only provides information about road construction sites, wheelchair accessible toilets and stations with lifts in Melbourne CBD.\n\nPlease click on the muse where you want to change the route.");
        /**
           function getVolume() {
                     L.mapbox.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejkyYm9qbjAwdm8yd3RlaXNtZmN3a3gifQ.Uc9LFNtZpBHYc00cU-tQUA';
